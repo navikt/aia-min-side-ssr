@@ -1,0 +1,9 @@
+@import "../../node_modules/@navikt/ds-css/dist/global/fonts.css";
+@import "../../node_modules/@navikt/ds-css/dist/global/tokens.css";
+@import "../../node_modules/@navikt/ds-css/dist/global/reset.css";
+@import "../../node_modules/@navikt/ds-css/dist/global/baseline.css";
+@import "../../node_modules/@navikt/ds-css/dist/global/print.css";
+@import "../../node_modules/@navikt/ds-css/dist/component/typography.css";
+@import "../../node_modules/@navikt/ds-css/dist/component/button.css";
+@import "../../node_modules/@navikt/ds-css/dist/component/link.css";
+@import "../../node_modules/@navikt/ds-css/dist/component/loader.css";

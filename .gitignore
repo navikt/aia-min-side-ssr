@@ -1,0 +1,32 @@
+# Node modules
+node_modules/
+
+# Build output
+dist/
+build/
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Dependency directories
+jspm_packages/
+
+# IDE files
+.vscode/
+.idea/
+
+# Environment variables
+.env
+
+# MacOS files
+.DS_Store
+
+# Astro files
+.astro/
+
+todos.txt

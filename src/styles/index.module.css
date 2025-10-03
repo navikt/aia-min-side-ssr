@@ -1,0 +1,6 @@
+/* Do not specify margin for the microfrontend */
+
+.microfrontend {
+  border: gray dashed;
+  padding: 2rem;
+}
