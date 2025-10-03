@@ -1,8 +1,8 @@
 export const text = {
   title: {
-    nb: "tms-microfrontend-template-ssr (nb)",
-    en: "tms-microfrontend-template-ssr (en)",
-    nn: "tms-microfrontend-template-ssr (nn)",
+    nb: "aia-min-side-ssr (nb)",
+    en: "aia-min-side-ssr (en)",
+    nn: "aia-min-side-ssr (nn)",
   },
   link: {
     nb: "Lenke",

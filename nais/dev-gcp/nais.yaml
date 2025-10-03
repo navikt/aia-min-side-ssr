@@ -1,10 +1,10 @@
 apiVersion: "nais.io/v1alpha1"
 kind: "Application"
 metadata:
-  name: tms-microfrontend-template-ssr # Change this to your application name
-  namespace: min-side # Change this to your namespace
+  name: aia-min-side-ssr
+  namespace: paw
   labels:
-    team: min-side # Change this to your team name
+    team: paw
 spec:
   tokenx:
     enabled: true
