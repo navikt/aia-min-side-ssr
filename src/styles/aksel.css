@@ -7,3 +7,5 @@
 @import "../../node_modules/@navikt/ds-css/dist/component/button.css";
 @import "../../node_modules/@navikt/ds-css/dist/component/link.css";
 @import "../../node_modules/@navikt/ds-css/dist/component/loader.css";
+@import "../../node_modules/@navikt/ds-css/dist/component/linkcard.css";
+@import "../../node_modules/@navikt/ds-css/dist/component/alert.css";
