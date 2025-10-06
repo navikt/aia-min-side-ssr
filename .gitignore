@@ -30,3 +30,5 @@ jspm_packages/
 .astro/
 
 todos.txt
+*storybook.log
+storybook-static
