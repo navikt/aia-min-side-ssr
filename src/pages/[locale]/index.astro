@@ -1,42 +1,40 @@
 ---
-import { EXAMPLE_API_URL } from "astro:env/server";
-import type { Language } from "@src/language/types";
-import { fetchExampleData } from "@src/utils/fetch";
+import {SIDE_2_URL, ARBEIDSSOEKERPERIODER_AGGREGERT_URL, TILGJENGELIGE_BEKREFTELSER_URL} from 'astro:env/server';
+import type {Language} from '@src/language/types';
+import '@src/styles/aksel.css';
+import AiA from '@src/components/aia';
+import {isLocal} from '../../utils/environment';
+import { fetchData } from "@src/utils/fetch";
 import { logger } from "@src/utils/logger";
 import { getOboToken } from "@src/utils/token";
-import "@src/styles/aksel.css";
+import type {AggregertePerioder, TilgjengeligeBekreftelser} from '@navikt/arbeidssokerregisteret-utils';
 
-const oboToken = await getOboToken(Astro.locals.token);
-let _exampleData;
+// const oboToken = await getOboToken(Astro.locals.token);
 
+let _aggregertePerioder: AggregertePerioder, _tilgjengeligeBekreftelser: TilgjengeligeBekreftelser[];
 try {
-  _exampleData = await fetchExampleData(oboToken, EXAMPLE_API_URL);
-} catch (error) {
-  logger.error(`Error fetching example data: ${error}`);
-  return new Response("Internal Server Error", { status: 503 });
+    _aggregertePerioder = await fetchData(ARBEIDSSOEKERPERIODER_AGGREGERT_URL, 'todo: token');
+    _tilgjengeligeBekreftelser = await fetchData(TILGJENGELIGE_BEKREFTELSER_URL, 'todo: token');
+} catch(error) {
+    logger.error(`Error fetching data: ${error}`);
+    return new Response("Internal Server Error", { status: 503 });
 }
-
 const _language = Astro.currentLocale as Language;
 ---
 
-{isLocal && <meta charset="UTF-8" />}
+{isLocal &&
+<meta charset="UTF-8"/>}
 <section class="aia-min-side-ssr">
-  <div class={styles.microfrontend}>
-    <Heading size="medium" level="2">
-      {text.title[language]}
-    </Heading>
-    <BodyShort>
-      {text.name[language]}: {exampleData.name}
-    </BodyShort>
-    <Link href="#" id="link">
-      {text.link[language]}
-    </Link>
-    <ClientIsland client:only="react" />
-  </div>
+    <AiA
+        side2Url={SIDE_2_URL}
+        aggregertPeriode={_aggregertePerioder[0]}
+        tilgjengeligeBekreftelser={_tilgjengeligeBekreftelser}
+        sprak={_language}>
+        ></AiA>
 </section>
 <script>
-  import { logEvent } from "@src/utils/analytics";
+  import {logEvent} from '@src/utils/analytics';
 
-  const microfrontend = document.querySelector("#link");
-  microfrontend?.addEventListener("click", () => logEvent("Lenke"));
+  const microfrontend = document.querySelector('#link');
+  microfrontend?.addEventListener('click', () => logEvent('Lenke'));
 </script>

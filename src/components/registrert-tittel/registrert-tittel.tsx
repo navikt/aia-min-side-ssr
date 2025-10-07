@@ -1,42 +1,39 @@
-import {
-  lagHentTekstForSprak,
-  type OpplysningerOmArbeidssokerResponse,
-  type Sprak,
-} from "@navikt/arbeidssokerregisteret-utils";
-import { harPermittertSituasjon } from "../../utils/har-permittert-situasjon";
+import { lagHentTekstForSprak, type OpplysningerOmArbeidssokerResponse } from '@navikt/arbeidssokerregisteret-utils';
+import type { Language } from '@src/language/types.ts';
+import { harPermittertSituasjon } from '../../utils/har-permittert-situasjon';
 
 export const TEKSTER = {
   nb: {
-    registrert: "Du er registrert som arbeidssøker",
-    registrertPermittert: "Du er registrert som permittert arbeidssøker",
-    ikkeRegistrert: "Du er ikke registrert som arbeidssøker",
+    registrert: 'Du er registrert som arbeidssøker',
+    registrertPermittert: 'Du er registrert som permittert arbeidssøker',
+    ikkeRegistrert: 'Du er ikke registrert som arbeidssøker',
   },
   nn: {
-    registrert: "Du er registrert som arbeidssøkjar",
-    registrertPermittert: "Du er registrert som permittert arbeidssøkjar",
-    ikkeRegistrert: "Du er ikkje registrert som arbeidssøkjar",
+    registrert: 'Du er registrert som arbeidssøkjar',
+    registrertPermittert: 'Du er registrert som permittert arbeidssøkjar',
+    ikkeRegistrert: 'Du er ikkje registrert som arbeidssøkjar',
   },
   en: {
-    registrert: "You are registered as job seeker",
-    registrertPermittert: "You are registered as a temporarily layed off job seeker",
-    ikkeRegistrert: "You are not registered as job seeker",
+    registrert: 'You are registered as job seeker',
+    registrertPermittert: 'You are registered as a temporarily layed off job seeker',
+    ikkeRegistrert: 'You are not registered as job seeker',
   },
 };
 
 function hentTekstNokkel(harAktivArbeidssokerperiode: boolean, erPermittert: boolean) {
   if (!harAktivArbeidssokerperiode) {
-    return "ikkeRegistrert";
+    return 'ikkeRegistrert';
   }
 
   if (erPermittert) {
-    return "registrertPermittert";
+    return 'registrertPermittert';
   }
 
-  return "registrert";
+  return 'registrert';
 }
 
 interface Props extends React.HTMLProps<any> {
-  sprak: Sprak;
+  sprak: Language;
   harAktivArbeidssokerperiode: boolean;
   opplysningerOmArbeidssoker: OpplysningerOmArbeidssokerResponse;
 }

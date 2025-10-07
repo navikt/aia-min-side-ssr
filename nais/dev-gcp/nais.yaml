@@ -31,5 +31,5 @@ spec:
       cpu: "20m"
       memory: 128Mi
   env: # Add your environment variables here
-    - name: EXAMPLE_API_URL
-      value: "https://example.dev.nav.no/api"
+    - name: SIDE_2_URL
+      value: https://www.ansatt.dev.nav.no/arbeidssoekerregisteret
