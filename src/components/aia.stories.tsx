@@ -23,6 +23,7 @@ export const Arbeidssøker: Story = {
     sprak: 'nb',
     aggregertPeriode: aggregertePerioderMock[0],
     tilgjengeligeBekreftelser: [],
+    side2Url: 'http://localhost:3000/test',
   },
 };
 
@@ -38,12 +39,14 @@ export const ArbeidssokerMedTilgjengeligBekreftelse: Story = {
         gjelderTil: 'imorgen',
       },
     ] as any,
+    side2Url: 'http://localhost:3000/test',
   },
 };
 export const AvsluttetPeriode: Story = {
   args: {
     sprak: 'nb',
     aggregertPeriode: aggregertePerioderMock[1],
+    side2Url: 'http://localhost:3000/test',
   },
 };
 
@@ -51,5 +54,6 @@ export const IngenPerioder: Story = {
   args: {
     sprak: 'nb',
     aggregertPeriode: null,
+    side2Url: 'http://localhost:3000/test',
   },
 };
