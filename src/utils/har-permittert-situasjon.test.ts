@@ -1,18 +1,19 @@
-import { DinSituasjon, mapSituasjonTilBeskrivelse, PermittertSvar } from "@navikt/arbeidssokerregisteret-utils";
-import { harPermittertSituasjon } from "./har-permittert-situasjon";
+import { DinSituasjon, mapSituasjonTilBeskrivelse, PermittertSvar } from '@navikt/arbeidssokerregisteret-utils';
+import { describe, expect, test } from 'vitest';
+import { harPermittertSituasjon } from './har-permittert-situasjon';
 
-describe("har-permittert-situasjon", () => {
-  test("returnerer false for tom input", () => {
+describe('har-permittert-situasjon', () => {
+  test('returnerer false for tom input', () => {
     expect(harPermittertSituasjon([])).toBe(false);
   });
 
-  test("returnerer true for registrert permittert", () => {
+  test('returnerer true for registrert permittert', () => {
     expect(
       harPermittertSituasjon([
         {
           jobbsituasjon: [
             {
-              beskrivelse: "ER_PERMITTERT",
+              beskrivelse: 'ER_PERMITTERT',
             },
           ],
         } as any,
@@ -20,30 +21,30 @@ describe("har-permittert-situasjon", () => {
     ).toBe(true);
   });
 
-  test("returnerer true for permittert besvarelse i nyeste opplysninger", () => {
+  test('returnerer true for permittert besvarelse i nyeste opplysninger', () => {
     expect(
       harPermittertSituasjon([
         {
           sendtInnAv: {
-            tidspunkt: "2024-02-14T13:15:48.969Z",
+            tidspunkt: '2024-02-14T13:15:48.969Z',
           },
           jobbsituasjon: [
             {
-              beskrivelse: "HAR_SAGT_OPP",
+              beskrivelse: 'HAR_SAGT_OPP',
             },
           ],
         } as any,
         {
           sendtInnAv: {
-            tidspunkt: "2024-03-14T13:15:48.969Z",
+            tidspunkt: '2024-03-14T13:15:48.969Z',
           },
-          jobbsituasjon: [{ beskrivelse: "ER_PERMITTERT" }],
+          jobbsituasjon: [{ beskrivelse: 'ER_PERMITTERT' }],
         },
       ]),
     ).toBe(true);
   });
 
-  test("returnerer true for alle permittert besvarelser", () => {
+  test('returnerer true for alle permittert besvarelser', () => {
     [
       PermittertSvar.ENDRET_PERMITTERINGSPROSENT,
       PermittertSvar.TILBAKE_TIL_JOBB,
@@ -73,7 +74,7 @@ describe("har-permittert-situasjon", () => {
             {
               beskrivelse: mapSituasjonTilBeskrivelse(PermittertSvar.ANNET),
               detaljer: {
-                gjelder_fra_dato_iso8601: "2024-06-24T08:19:25.502Z",
+                gjelder_fra_dato_iso8601: '2024-06-24T08:19:25.502Z',
               },
             },
           ],
@@ -90,7 +91,7 @@ describe("har-permittert-situasjon", () => {
             {
               beskrivelse: mapSituasjonTilBeskrivelse(PermittertSvar.OPPSIGELSE),
               detaljer: {
-                gjelder_fra_dato_iso8601: "2024-06-24T08:19:25.502Z",
+                gjelder_fra_dato_iso8601: '2024-06-24T08:19:25.502Z',
               },
             },
           ],
@@ -107,7 +108,7 @@ describe("har-permittert-situasjon", () => {
             {
               beskrivelse: mapSituasjonTilBeskrivelse(PermittertSvar.OPPSIGELSE),
               detaljer: {
-                gjelder_fra_dato_iso8601: "2024-06-24T08:19:25.502Z",
+                gjelder_fra_dato_iso8601: '2024-06-24T08:19:25.502Z',
               },
             },
           ],
@@ -130,12 +131,12 @@ describe("har-permittert-situasjon", () => {
     ).toBe(false);
   });
 
-  test("returnerer false hvis siste opplysninger er ikke permittert", () => {
+  test('returnerer false hvis siste opplysninger er ikke permittert', () => {
     expect(
       harPermittertSituasjon([
         {
           sendtInnAv: {
-            tidspunkt: "2024-03-14T13:15:48.969Z",
+            tidspunkt: '2024-03-14T13:15:48.969Z',
           },
           jobbsituasjon: [
             {
@@ -145,15 +146,15 @@ describe("har-permittert-situasjon", () => {
         } as any,
         {
           sendtInnAv: {
-            tidspunkt: "2024-02-14T13:15:48.969Z",
+            tidspunkt: '2024-02-14T13:15:48.969Z',
           },
-          jobbsituasjon: [{ beskrivelse: "ER_PERMITTERT" }],
+          jobbsituasjon: [{ beskrivelse: 'ER_PERMITTERT' }],
         },
       ]),
     ).toBe(false);
   });
 
-  test("returnerer false for ikke-permittert besvarelse", () => {
+  test('returnerer false for ikke-permittert besvarelse', () => {
     expect(
       harPermittertSituasjon([
         {
