@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    name: "build"
+    name: "test & build"
     runs-on: "ubuntu-latest"
 
     permissions:
@@ -28,10 +28,15 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.READER_TOKEN }}
 
+      - name: "Run tests"
+        run: "npm run test:ci"
+
       - name: "Build application"
         run: "npm run build"
         env:
           ASTRO_KEY: ${{ secrets.ASTRO_KEY }}
+      - name: "Build storybook"
+        run: "npm run build-storybook"
 
 #      - name: "Upload to cdn"
 #        uses: nais/deploy/actions/cdn-upload/v2@master
