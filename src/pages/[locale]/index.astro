@@ -3,6 +3,7 @@ import {SIDE_2_URL, ARBEIDSSOEKERPERIODER_AGGREGERT_URL, TILGJENGELIGE_BEKREFTEL
 import type {Language} from '@src/language/types';
 import '@src/styles/aksel.css';
 import AiA from '@src/components/aia';
+import LoggVisning from '@src/components/logg-visning';
 import {isLocal} from '../../utils/environment';
 import { fetchData } from "@src/utils/fetch";
 import { logger } from "@src/utils/logger";
@@ -29,12 +30,18 @@ const _language = Astro.currentLocale as Language;
         side2Url={SIDE_2_URL}
         aggregertPeriode={_aggregertePerioder[0]}
         tilgjengeligeBekreftelser={_tilgjengeligeBekreftelser}
-        sprak={_language}>
+        sprak={_language}
+        client:load
+    >
         ></AiA>
+    <LoggVisning
+        aggregertPeriode={_aggregertePerioder[0]}
+        tilgjengeligeBekreftelser={_tilgjengeligeBekreftelser}
+        client:load />
 </section>
-<script>
-  import {logEvent} from '@src/utils/analytics';
+<!--<script>-->
+<!--  import {logEvent} from '@src/utils/analytics';-->
 
-  const microfrontend = document.querySelector('#link');
-  microfrontend?.addEventListener('click', () => logEvent('Lenke'));
-</script>
+<!--  const microfrontend = document.querySelector('#link');-->
+<!--  microfrontend?.addEventListener('click', () => logEvent('Lenke'));-->
+<!--</script>-->

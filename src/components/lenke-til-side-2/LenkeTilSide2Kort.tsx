@@ -7,8 +7,6 @@ import RegistrertTittel from '../registrert-tittel/registrert-tittel';
 import { SokerJobbIkon } from './SokerJobbIkon';
 import styles from './styles.module.css';
 
-// import { AktivitetData, loggAktivitet, VisningsData } from '../../lib/tracking';
-
 interface Side2Props {
   aggregertPeriode: AggregertPeriode;
   sprak: Language;
@@ -51,33 +49,15 @@ const LenkeTilSide2Kort = (props: Side2Props) => {
   const bekreftelse = aggregertPeriode.bekreftelser[0];
   const tekst = lagHentTekstForSprak(TEKSTER, sprak);
 
-  // function hentLoggVisningData() {
-  //   if (!harAktivArbeidssokerperiode) {
-  //     return { viser: "Mikrofrontend for ikke aktiv arbeidssøker" };
-  //   }
-  //   if (harTilgjengeligBekreftelse) {
-  //     return { viser: "Mikrofrontend for aktiv arbeidssøker - med bekreftelse" };
-  //   }
-  //   return { viser: "Mikrofrontend for aktiv arbeidssøker" };
-  // }
-  //
-  // function _hentAktivitetData() {
-  //   if (!harAktivArbeidssokerperiode) {
-  //     return { aktivitet: "Trykker på mikrofrontend for ikke aktiv arbeidssøker" };
-  //   }
-  //   if (harTilgjengeligBekreftelse) {
-  //     return { aktivitet: "Trykker på mikrofrontend for aktiv arbeidssøker - med bekreftelse" };
-  //   }
-  //   return { aktivitet: "Trykker på mikrofrontend for aktiv arbeidssøker" };
-  // }
-  //
-  // const onClick = async () => {
-  //   // await loggAktivitet(hentAktivitetData());
-  // };
-  //
-  // const onClickBekreftelse = async () => {
-  //   // await loggAktivitet({ aktivitet: 'Trykker på bekreftelse lenke fra mikrofrontend' });
-  // };
+  function hentAktivitetData() {
+    if (!harAktivArbeidssokerperiode) {
+      return 'Trykker på mikrofrontend for ikke aktiv arbeidssøker';
+    }
+    if (harTilgjengeligBekreftelse) {
+      return 'Trykker på mikrofrontend for aktiv arbeidssøker - med bekreftelse';
+    }
+    return 'Trykker på mikrofrontend for aktiv arbeidssøker';
+  }
 
   const sprakUrlPostfix = sprak === 'nb' ? '' : `/${sprak}`;
 
@@ -86,7 +66,8 @@ const LenkeTilSide2Kort = (props: Side2Props) => {
       <LinkCard
         className={`${styles.aiaLinkCard} ${harTilgjengeligBekreftelse ? styles.aiaLinkCard_bekreftelse : ''}`.trim()}
         arrowPosition={'center'}
-        // onClick={onClick}
+        data-umami-event={'arbeidssoekerregisteret-for-personbruker.aktivitet'}
+        data-umami-event-aktivitet={hentAktivitetData()}
       >
         {/*<LoggInViewport data={hentLoggVisningData()} />*/}
         <LinkCard.Icon className={styles.aiaLinkCard_icon_wrapper}>
@@ -127,8 +108,9 @@ const LenkeTilSide2Kort = (props: Side2Props) => {
         <Link
           className={styles.aiaLinkCardBekreftelse}
           href={`${side2Url}${sprakUrlPostfix}/bekreftelse`}
-          // onClick={onClickBekreftelse}
           variant={'neutral'}
+          data-umami-event={'arbeidssoekerregisteret-for-personbruker.aktivitet'}
+          data-umami-event-aktivitet={'Trykker på bekreftelse lenke fra mikrofrontend'}
         >
           <ExclamationmarkTriangleFillIcon
             title='a11y-title'

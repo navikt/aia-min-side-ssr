@@ -11,7 +11,6 @@ export interface AiaProps {
 
 function AiA(props: AiaProps) {
   const { sprak, aggregertPeriode, tilgjengeligeBekreftelser = [], side2Url } = props;
-  console.log('side2Url fro AiA', side2Url);
   const harIngenPerioder = !aggregertPeriode?.startet;
 
   if (harIngenPerioder) {
