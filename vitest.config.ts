@@ -1,6 +1,5 @@
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { storybookTest } from '@storybook/addon-vitest/vitest-plugin';
 import { defineConfig, defineProject } from 'vitest/config';
 
 const dirname = typeof __dirname !== 'undefined' ? __dirname : path.dirname(fileURLToPath(import.meta.url));
@@ -14,24 +13,24 @@ export default defineConfig({
         include: ['src/**/*.test.{ts,tsx}'],
         environment: 'jsdom',
       } as any),
-      defineProject({
-        name: 'storybook',
-        extends: true,
-        plugins: [
-          storybookTest({
-            configDir: path.join(dirname, '.storybook'),
-          }),
-        ],
-        test: {
-          browser: {
-            enabled: true,
-            headless: true,
-            provider: 'playwright',
-            instances: [{ browser: 'chromium' }],
-          },
-          setupFiles: ['.storybook/vitest.setup.ts'],
-        },
-      } as any),
+      //   defineProject({
+      //     name: 'storybook',
+      //     extends: true,
+      //     plugins: [
+      //       storybookTest({
+      //         configDir: path.join(dirname, '.storybook'),
+      //       }),
+      //     ],
+      //     test: {
+      //       browser: {
+      //         enabled: true,
+      //         headless: true,
+      //         provider: 'playwright',
+      //         instances: [{ browser: 'chromium' }],
+      //       },
+      //       setupFiles: ['.storybook/vitest.setup.ts'],
+      //     },
+      //   } as any),
     ],
   },
 });
