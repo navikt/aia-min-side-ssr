@@ -16,6 +16,7 @@ export default defineConfig({
       } as any),
       defineProject({
         name: 'storybook',
+        extends: true,
         plugins: [
           storybookTest({
             configDir: path.join(dirname, '.storybook'),
