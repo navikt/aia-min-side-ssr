@@ -9,6 +9,8 @@ spec:
   tokenx:
     enabled: true
   image: {{ image }}
+  ingresses:
+    - https://aia-min-side-ssr.ansatt.dev.nav.no
   port: 3000
   liveness:
     path: /api/internal/isAlive
