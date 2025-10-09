@@ -42,35 +42,35 @@ jobs:
       - name: "Build storybook"
         run: "npm run build-storybook"
 
-#      - name: "Upload to cdn"
-#        uses: nais/deploy/actions/cdn-upload/v2@master
-#        with:
-#          team: min-side # Change this to your team name
-#          source: ./dist/client/_astro
-#          destination: 'aia-min-side-ssr' # Change this to your application name
-#
-#      - name: "Build and push"
-#        uses: nais/docker-build-push@v0
-#        id: docker-build-push
-#        with:
-#          team: min-side # Change this to your team name
-#
-#    outputs:
-#      image: ${{ steps.docker-build-push.outputs.image }}
+      - name: "Upload to cdn"
+        uses: nais/deploy/actions/cdn-upload/v2@master
+        with:
+          team: paw
+          source: ./dist/client/_astro
+          destination: 'aia-min-side-ssr' # Change this to your application name
 
-#  update-manifest-dev:
-#    uses: navikt/tms-deploy/.github/workflows/oppdater-mikrofrontend-manifest-v3.yaml@main
-#    needs: build
-#    with:
-#      id: "aia-min-side-ssr" # Change this to your application name
-#      url: "http://aia-min-side-ssr" # Change the url to contain your application name. Example: http://my-app
-#      appname: "aia-min-side-ssr" # Change this to your application name
-#      namespace: "min-side" # Change this to your namespace
-#      cluster: dev-gcp
-#      commitmsg: ${{ github.event.head_commit.message}}
-#      fallback: "fallback" # Should containt the path to the fallback page after src/pages/[locale]/... Only needs to be changed if you move the fallback in the pages structure
-#      ssr: true
-#    secrets: inherit
+      - name: "Build and push"
+        uses: nais/docker-build-push@v0
+        id: docker-build-push
+        with:
+          team: paw
+
+    outputs:
+      image: ${{ steps.docker-build-push.outputs.image }}
+
+  update-manifest-dev:
+    uses: navikt/tms-deploy/.github/workflows/oppdater-mikrofrontend-manifest-v3.yaml@main
+    needs: build
+    with:
+      id: "aia-min-side-ssr" # Change this to your application name
+      url: "http://aia-min-side-ssr" # Change the url to contain your application name. Example: http://my-app
+      appname: "aia-min-side-ssr" # Change this to your application name
+      namespace: "paw" # Change this to your namespace
+      cluster: dev-gcp
+      commitmsg: ${{ github.event.head_commit.message}}
+      fallback: "fallback" # Should containt the path to the fallback page after src/pages/[locale]/... Only needs to be changed if you move the fallback in the pages structure
+      ssr: true
+    secrets: inherit
 
   # update-manifest-prod:
   #   if: github.ref == 'refs/heads/main'
@@ -87,20 +87,20 @@ jobs:
   #     ssr: true
   #   secrets: inherit
 
-#  deploy-dev:
-#    runs-on: "ubuntu-latest"
-#    permissions:
-#      contents: "read"
-#      id-token: "write"
-#    needs: [build, update-manifest-dev]
-#    steps:
-#      - uses: "actions/checkout@v4"
-#      - name: "Deploy to dev"
-#        uses: "nais/deploy/actions/deploy@v2"
-#        env:
-#          CLUSTER: dev-gcp
-#          RESOURCE: nais/dev-gcp/nais.yaml
-#          VAR: image=${{ needs.build.outputs.image }},version=${{ github.sha }}
+  deploy-dev:
+    runs-on: "ubuntu-latest"
+    permissions:
+      contents: "read"
+      id-token: "write"
+    needs: [build, update-manifest-dev]
+    steps:
+      - uses: "actions/checkout@v4"
+      - name: "Deploy to dev"
+        uses: "nais/deploy/actions/deploy@v2"
+        env:
+          CLUSTER: dev-gcp
+          RESOURCE: nais/dev-gcp/nais.yaml
+          VAR: image=${{ needs.build.outputs.image }},version=${{ github.sha }}
 
   # deploy-prod:
   #   if: github.ref == 'refs/heads/main'
