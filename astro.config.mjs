@@ -63,10 +63,20 @@ export default defineConfig({
         access: 'secret',
         default: 'http://localhost:3000/arbeidssoekerperioder-aggregert',
       }),
+      ARBEIDSSOKERREGISTERET_OPPSLAG_CLIENT_ID: envField.string({
+        context: 'server',
+        access: 'secret',
+        default: 'dev-gcp:paw:paw-arbeidssoekerregisteret-api-oppslag-v2',
+      }),
       TILGJENGELIGE_BEKREFTELSER_URL: envField.string({
         context: 'server',
         access: 'secret',
         default: 'http://localhost:3000/tilgjengelige-bekreftelser',
+      }),
+      BEKREFTELSE_API_CLIENT_ID: envField.string({
+        context: 'server',
+        access: 'secret',
+        default: 'dev-gcp:paw:paw-arbeidssoekerregisteret-api-bekreftelse',
       }),
     },
   },
