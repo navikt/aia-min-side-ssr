@@ -1,0 +1,4 @@
+@import "tailwindcss";
+@import './aksel.css';
+
+@config '../../tailwind.config.js';
