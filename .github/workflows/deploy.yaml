@@ -63,7 +63,7 @@ jobs:
     needs: build
     with:
       id: "aia-min-side-ssr" # Change this to your application name
-      url: "http://aia-min-side-ssr" # Change the url to contain your application name. Example: http://my-app
+      url: "http://aia-min-side-ssr.paw" # Change the url to contain your application name. Example: http://my-app
       appname: "aia-min-side-ssr" # Change this to your application name
       namespace: "paw" # Change this to your namespace
       cluster: dev-gcp
@@ -78,7 +78,7 @@ jobs:
   #   needs: build
   #   with:
   #     id: "aia-min-side-ssr-id"
-  #     url: "http://aia-min-side-ssr.min-side"
+  #     url: "http://aia-min-side-ssr.paw"
   #     appname: "aia-min-side-ssr"
   #     namespace: "team-namespace"
   #     cluster: prod-gcp
