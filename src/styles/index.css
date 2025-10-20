@@ -1,4 +1,7 @@
-@import "tailwindcss";
-@import './aksel.css';
+/* Define layer order - layers are processed in this order */
+@layer utilities, aksel, local;
+
+@import "tailwindcss" layer(utilities);
+@import './aksel.css' layer(aksel);
 
 @config '../../tailwind.config.js';
