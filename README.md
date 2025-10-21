@@ -1,30 +1,73 @@
-# tms-microfrontend-template-ssr
+# aia-min-side-ssr
 
-Kan brukes som utgangspunkt for å opprette nye server-side rendrede microfrontends til Min Side.
+Arbeidssøkerregisteret sin microfrontend på Min Side.
+En server-side rendret (SSR) app, bygget med Astro.
 
-# Kom i gang
+## Formål
+Vi viser innhold fra Arbeidssøkerregisteret
+- Om du er registrert
+- Registrert dato
+- Siste bekreftelse
+- Lenke til se og endre opplysninger
+- Lenke til bekreftelse, dersom du har en uforstående bekreftelse
 
-## Tilpasse templatet til ditt prosjekt
+## Storybook
+Storybook for microfrontenden ligger på [https://aia-min-side.ansatt.dev.nav.no](https://aia-min-side.ansatt.dev.nav.no) (krever tilgang til ansatt.dev.nav.no ingressen)
 
-1. `CMD + Shift + F` og søk etter `tms-microfrontend-template-ssr` og erstatt dette med ditt applikasjonsnavn.
-2. Tilpass innholdet i `nais/dev-gcp/nais.yaml` og `nais/prod-gcp/nais.yaml` til ditt prosjekt.
-3. Tilpass innholdet i `.github/workflows/deploy.yaml` til ditt prosjekt.
-4. Be om tilgang til å oppdatere manifestet og deploye applikasjonen til nais på slack kanalen [#minside-microfrontends](https://nav-it.slack.com/archives/C04V21LT27P).
-5. Kommenter ut `update-manifest-prod-gcp` og `deploy-prod-gcp` stegene i `.github/workflows/deploy.yaml`.
 
-NOTE: Du bør se på konteksten i filen du endrer.
+## Kjøre appen lokalt
 
-# Kjøre appen lokalt
+Bruk Node.js 22 `nvm use` (dersom du bruker nvm til versjonshåndtering av Node.js).
 
-1. Installer dependencies: `npm i`
-2. Start hono mockserver: `npm run mock`
-3. Med mockserver kjørende i egen terminal, start appen: `npm run dev`
-4. Appen nås på http://localhost:4321/
+Siden noen av modulene hentes fra GitHubs package registry må du også gjøre litt ekstra konfigurasjon for å kjøre løsningen lokalt.
 
-# Henvendelser
+- Opprett et PAT (github => settings => developer settings => personal access tokens => tokens (classic)) med `read:packages` scope
+- Konfigurer SSO mot NAVIKT for tokenet
+- Bruk tokenet som passord ved login `npm login --registry https://npm.pkg.github.com`
+- På roten av repoet lager du en `.npmrc` fil med dette innholdet
 
-Spørsmål knyttet til koden eller prosjektet kan stilles som issues her på github.
+```
+@navikt:registry=https://npm.pkg.github.com
+registry=https://registry.npmjs.org
+engine-strict=true
+save-exact=true
+```
+
+Deretter fortsette du med
+1. klon repo
+2. bruk rett versjon av Node.js `nvm use`
+3. Installer dependencies: `npm i`
+4. Start hono mockserver: `npm run mock`
+5. Med mockserver kjørende i egen terminal, start appen: `npm run dev`
+6. Appen nås på http://localhost:4321/
+
+## Deploye kun til dev
+
+Ved å prefikse branch-navn med `dev/`, så vil branchen kun deployes i dev.
+
+```
+git checkout -b dev/<navn på branch>
+```
+
+## Test
+
+For å se løsningen i dev bruker du [https://www.ansatt.dev.nav.no/minside](https://www.ansatt.dev.nav.no/minside)
+
+Du vil trenger en syntetisk testbruker for å logge inn.
+Slike brukere kan du opprette på [Dolly](https://dolly.ekstern.dev.nav.no/)
+
+Microfrontenden vil bare vises dersom testpersonen er registrert arbeidssøker eller har vært det de siste 21 dagene.
+
+## Ekstern dokumentasjon
+
+- [Storybook](https://storybook.js.org/)
+- [Aksel - komponenter](https://aksel.nav.no/komponenter)
+- [Tailwind.css](https://tailwindcss.com/)
+
+## Henvendelser
+
+Spørsmål knyttet til koden eller prosjektet kan stilles via issues her på github.
 
 ## For NAV-ansatte
 
-Interne henvendelser kan sendes via Slack i kanalen [#minside-microfrontends](https://nav-it.slack.com/archives/C04V21LT27P).
+Interne henvendelser kan sendes via Slack i kanalen [#team-paw-dev](https://nav-it.slack.com/archives/CLTFAEW75)
