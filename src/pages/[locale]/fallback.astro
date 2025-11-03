@@ -1,15 +1,4 @@
 ---
 // Your microfrontend could fail with an error. This is a static version of your microfrontend that will be displayed
 // to the user instead.
-
-import type { Language } from "@src/language/types";
-import "@src/styles/aksel.css";
-import {isLocal} from '../../utils/environment';
-
-const _language = Astro.currentLocale as Language;
 ---
-
-{isLocal && <meta charset="UTF-8" />}
-<section class="aia-min-side-ssr">
-  <h1>HJÆLP</h1>
-</section>
