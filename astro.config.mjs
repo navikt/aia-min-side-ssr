@@ -9,7 +9,7 @@ import importmap from './importmap.json';
 // https://astro.build/config
 export default defineConfig({
   build: {
-    assetsPrefix: 'https://cdn.nav.no/min-side/aia-min-side-ssr',
+    assetsPrefix: 'https://cdn.nav.no/paw/aia-min-side-ssr',
     inlineStylesheets: 'always',
   },
   vite: {
