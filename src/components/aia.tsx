@@ -21,7 +21,7 @@ function AiA(props: AiaProps) {
 
   return (
     <LenkeTilSide2Kort
-      aggregertPeriode={aggregertPeriode!}
+      aggregertPeriode={aggregertPeriode}
       sprak={sprak}
       harTilgjengeligBekreftelse={harTilgjengeligeBekreftelser}
       side2Url={side2Url}

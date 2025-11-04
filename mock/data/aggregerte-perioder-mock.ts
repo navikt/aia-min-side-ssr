@@ -1,4 +1,10 @@
-import type { AggregertePerioder, JaEllerNei, ProfilertTil } from '@navikt/arbeidssokerregisteret-utils';
+import type {
+  AggregertePerioder,
+  AggregertPeriode,
+  Egenvurdering,
+  JaEllerNei,
+  ProfilertTil,
+} from '@navikt/arbeidssokerregisteret-utils';
 
 export const aggregertePerioderMock: AggregertePerioder = [
   {
@@ -31,7 +37,6 @@ export const aggregertePerioderMock: AggregertePerioder = [
           kilde:
             'europe-north1-docker.pkg.dev/nais-management-233d/paw/paw-arbeidssokerregisteret-api-inngang:24.11.15.143-1',
           aarsak: 'opplysning om arbeidssøker sendt inn',
-          // "tidspunktFraKilde": null
         },
         jobbsituasjon: [
           {
@@ -61,24 +66,19 @@ export const aggregertePerioderMock: AggregertePerioder = [
             tidspunkt: '2024-11-19T08:44:01.886Z',
             utfoertAv: {
               type: 'SYSTEM',
-              // "id": "paw-arbeidssoekerregisteret-monorepo-ekstern-24.11.18.41-1" as any
             },
             kilde: 'paw-arbeidssoekerregisteret-monorepo-ekstern-24.11.18.41-1',
             aarsak: 'opplysninger-mottatt',
-            // "tidspunktFraKilde": {
-            //   "tidspunkt": "2024-11-19T08:44:01.611Z",
-            //   "avviksType": "FORSINKELSE"
-            // }
           },
           profilertTil: 'ANTATT_GODE_MULIGHETER' as ProfilertTil,
           jobbetSammenhengendeSeksAvTolvSisteManeder: true,
           alder: 38,
           egenvurderinger: [
             {
-              egenvurderingId: '42',
+              id: '42',
               egenvurdering: 'ANTATT_BEHOV_FOR_VEILEDNING' as ProfilertTil,
             },
-          ] as any,
+          ] as Egenvurdering[],
         },
       },
       {
@@ -93,7 +93,6 @@ export const aggregertePerioderMock: AggregertePerioder = [
           kilde:
             'europe-north1-docker.pkg.dev/nais-management-233d/paw/paw-arbeidssokerregisteret-api-inngang:24.11.15.143-1',
           aarsak: 'opplysning om arbeidssøker sendt inn',
-          // "tidspunktFraKilde": null
         },
         jobbsituasjon: [
           {
@@ -106,8 +105,8 @@ export const aggregertePerioderMock: AggregertePerioder = [
         ],
         utdanning: {
           nus: '0',
-          bestaatt: null,
-          godkjent: null,
+          bestaatt: 'NEI',
+          godkjent: 'NEI',
         },
         helse: {
           helsetilstandHindrerArbeid: 'JA',
@@ -123,14 +122,9 @@ export const aggregertePerioderMock: AggregertePerioder = [
             tidspunkt: '2024-11-19T08:43:23.488Z',
             utfoertAv: {
               type: 'SYSTEM',
-              id: 'paw-arbeidssoekerregisteret-monorepo-ekstern-24.11.18.41-1',
             },
             kilde: 'paw-arbeidssoekerregisteret-monorepo-ekstern-24.11.18.41-1',
             aarsak: 'opplysninger-mottatt',
-            tidspunktFraKilde: {
-              tidspunkt: '2024-11-19T08:43:22.779Z',
-              avviksType: 'FORSINKELSE',
-            },
           },
           profilertTil: 'OPPGITT_HINDRINGER',
           jobbetSammenhengendeSeksAvTolvSisteManeder: true,
@@ -139,7 +133,7 @@ export const aggregertePerioderMock: AggregertePerioder = [
       },
     ],
     bekreftelser: [],
-  } as any,
+  } as AggregertPeriode,
   {
     periodeId: 'e3a33f8c-586e-45c6-b1e8-2e4573983608',
     startet: {
@@ -176,7 +170,6 @@ export const aggregertePerioderMock: AggregertePerioder = [
           kilde:
             'europe-north1-docker.pkg.dev/nais-management-233d/paw/paw-arbeidssokerregisteret-api-inngang:24.11.14.141-1',
           aarsak: 'opplysning om arbeidssøker sendt inn',
-          tidspunktFraKilde: null,
         },
         jobbsituasjon: [
           {
@@ -206,14 +199,9 @@ export const aggregertePerioderMock: AggregertePerioder = [
             tidspunkt: '2024-11-15T12:48:26.258Z',
             utfoertAv: {
               type: 'SYSTEM',
-              id: 'paw-arbeidssoekerregisteret-monorepo-ekstern-24.11.11.40-1',
             },
             kilde: 'paw-arbeidssoekerregisteret-monorepo-ekstern-24.11.11.40-1',
             aarsak: 'opplysninger-mottatt',
-            tidspunktFraKilde: {
-              tidspunkt: '2024-11-15T12:48:25.578Z',
-              avviksType: 'FORSINKELSE',
-            },
           },
           profilertTil: 'ANTATT_GODE_MULIGHETER',
           jobbetSammenhengendeSeksAvTolvSisteManeder: true,
@@ -235,7 +223,7 @@ export const aggregertePerioderMock: AggregertePerioder = [
             kilde:
               'europe-north1-docker.pkg.dev/nais-management-233d/paw/paw-arbeidssoekerregisteret-api-bekreftelse:24.11.14.142-1',
             aarsak: 'Bekreftelse levert',
-            tidspunktFraKilde: null,
+            tidspunktFraKilde: {},
           },
           gjelderFra: '2024-11-15T12:48:25.398Z',
           gjelderTil: '2024-11-15T12:53:25.398Z',
@@ -244,5 +232,5 @@ export const aggregertePerioderMock: AggregertePerioder = [
         },
       },
     ],
-  },
+  } as AggregertPeriode,
 ];

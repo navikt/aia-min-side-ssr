@@ -32,13 +32,13 @@ function hentTekstNokkel(harAktivArbeidssokerperiode: boolean, erPermittert: boo
   return 'registrert';
 }
 
-interface Props extends React.HTMLProps<any> {
+type Props = {
   sprak: Language;
   harAktivArbeidssokerperiode: boolean;
   opplysningerOmArbeidssoker: OpplysningerOmArbeidssokerResponse;
-}
+};
 
-const RegistrertTittel = (props: Props) => {
+const RegistrertTittel: React.FC<Props> = (props: Props) => {
   const { harAktivArbeidssokerperiode, opplysningerOmArbeidssoker, sprak } = props;
 
   const tekst = lagHentTekstForSprak(TEKSTER, sprak);

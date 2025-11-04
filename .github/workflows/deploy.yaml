@@ -50,7 +50,7 @@ jobs:
         with:
           team: paw
           source: ./dist/client/_astro
-          destination: 'aia-min-side-ssr' # Change this to your application name
+          destination: "aia-min-side-ssr" # Change this to your application name
 
       - name: "Build and push"
         uses: nais/docker-build-push@v0

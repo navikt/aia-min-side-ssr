@@ -1,3 +1,4 @@
+import type { OpplysningerOmArbeidssoker } from '@navikt/arbeidssokerregisteret-utils';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import opplysningerOmArbeidssokerMock from '../../../mock/data/opplysninger-om-arbeidssoker-mock';
 import RegistrertTittel from './registrert-tittel';
@@ -16,7 +17,7 @@ export const RegistreringsTittelAktivArbeidssokerStory: Story = {
   args: {
     sprak: 'nb',
     harAktivArbeidssokerperiode: true,
-    opplysningerOmArbeidssoker: opplysningerOmArbeidssokerMock as any,
+    opplysningerOmArbeidssoker: opplysningerOmArbeidssokerMock as OpplysningerOmArbeidssoker[],
   },
 };
 
@@ -24,6 +25,6 @@ export const RegistreringsTittelIkkeAktivArbeidssokerStory: Story = {
   args: {
     sprak: 'nb',
     harAktivArbeidssokerperiode: false,
-    opplysningerOmArbeidssoker: opplysningerOmArbeidssokerMock as any,
+    opplysningerOmArbeidssoker: opplysningerOmArbeidssokerMock as OpplysningerOmArbeidssoker[],
   },
 };

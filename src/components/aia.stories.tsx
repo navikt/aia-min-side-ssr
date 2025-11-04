@@ -1,3 +1,4 @@
+import type { TilgjengeligeBekreftelser } from '@navikt/arbeidssokerregisteret-utils';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { aggregertePerioderMock } from '../../mock/data/aggregerte-perioder-mock.ts';
 import AiA from './aia';
@@ -38,7 +39,7 @@ export const ArbeidssokerMedTilgjengeligBekreftelse: Story = {
         gjelderFra: 'nå',
         gjelderTil: 'imorgen',
       },
-    ] as any,
+    ] as unknown as TilgjengeligeBekreftelser[],
     side2Url: 'http://localhost:3000/test',
   },
 };

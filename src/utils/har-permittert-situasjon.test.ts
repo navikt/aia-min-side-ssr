@@ -1,4 +1,9 @@
-import { DinSituasjon, mapSituasjonTilBeskrivelse, PermittertSvar } from '@navikt/arbeidssokerregisteret-utils';
+import {
+  DinSituasjon,
+  mapSituasjonTilBeskrivelse,
+  type OpplysningerOmArbeidssokerResponse,
+  PermittertSvar,
+} from '@navikt/arbeidssokerregisteret-utils';
 import { describe, expect, test } from 'vitest';
 import { harPermittertSituasjon } from './har-permittert-situasjon';
 
@@ -16,7 +21,7 @@ describe('har-permittert-situasjon', () => {
               beskrivelse: 'ER_PERMITTERT',
             },
           ],
-        } as any,
+        } as OpplysningerOmArbeidssokerResponse[0],
       ]),
     ).toBe(true);
   });
@@ -33,13 +38,13 @@ describe('har-permittert-situasjon', () => {
               beskrivelse: 'HAR_SAGT_OPP',
             },
           ],
-        } as any,
+        } as OpplysningerOmArbeidssokerResponse[0],
         {
           sendtInnAv: {
             tidspunkt: '2024-03-14T13:15:48.969Z',
           },
           jobbsituasjon: [{ beskrivelse: 'ER_PERMITTERT' }],
-        },
+        } as OpplysningerOmArbeidssokerResponse[0],
       ]),
     ).toBe(true);
   });
@@ -60,8 +65,8 @@ describe('har-permittert-situasjon', () => {
                 beskrivelse: mapSituasjonTilBeskrivelse(svar),
               },
             ],
-          },
-        ] as any),
+          } as OpplysningerOmArbeidssokerResponse[0],
+        ]),
       ).toBe(true);
     });
   });
@@ -78,8 +83,8 @@ describe('har-permittert-situasjon', () => {
               },
             },
           ],
-        },
-      ] as any),
+        } as OpplysningerOmArbeidssokerResponse[0],
+      ]),
     ).toBe(true);
   });
 
@@ -95,8 +100,8 @@ describe('har-permittert-situasjon', () => {
               },
             },
           ],
-        },
-      ] as any),
+        } as OpplysningerOmArbeidssokerResponse[0],
+      ]),
     ).toBe(true);
   });
 
@@ -112,8 +117,8 @@ describe('har-permittert-situasjon', () => {
               },
             },
           ],
-        },
-      ] as any),
+        } as OpplysningerOmArbeidssokerResponse[0],
+      ]),
     ).toBe(true);
   });
 
@@ -126,8 +131,8 @@ describe('har-permittert-situasjon', () => {
               beskrivelse: mapSituasjonTilBeskrivelse(PermittertSvar.OPPSIGELSE),
             },
           ],
-        },
-      ] as any),
+        } as OpplysningerOmArbeidssokerResponse[0],
+      ]),
     ).toBe(false);
   });
 
@@ -143,13 +148,13 @@ describe('har-permittert-situasjon', () => {
               beskrivelse: DinSituasjon.AKKURAT_FULLFORT_UTDANNING,
             },
           ],
-        } as any,
+        } as OpplysningerOmArbeidssokerResponse[0],
         {
           sendtInnAv: {
             tidspunkt: '2024-02-14T13:15:48.969Z',
           },
           jobbsituasjon: [{ beskrivelse: 'ER_PERMITTERT' }],
-        },
+        } as OpplysningerOmArbeidssokerResponse[0],
       ]),
     ).toBe(false);
   });
@@ -163,7 +168,7 @@ describe('har-permittert-situasjon', () => {
               beskrivelse: DinSituasjon.AKKURAT_FULLFORT_UTDANNING,
             },
           ],
-        } as any,
+        } as OpplysningerOmArbeidssokerResponse[0],
       ]),
     ).toBe(false);
   });

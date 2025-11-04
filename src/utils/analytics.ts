@@ -1,7 +1,7 @@
 import { getAnalyticsInstance } from '@navikt/nav-dekoratoren-moduler';
 import { isLocal } from '@src/utils/environment.ts';
 
-export async function logUmamiEvent(eventName: string, data: any) {
+export async function logUmamiEvent(eventName: string, data: unknown) {
   try {
     const tracker = getAnalyticsInstance('aia-min-side-ssr');
     if (!isLocal) {
