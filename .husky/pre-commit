@@ -1,2 +1,2 @@
 npm run astro check
-lint-staged
+npx lint-staged
