@@ -1,38 +1,38 @@
-@layer local {
-  .aiaLinkCard_icon_wrapper {
-    align-self: center;
-  }
+/*@layer local {*/
+.aiaLinkCard_icon_wrapper {
+  align-self: center;
+}
 
+.aiaLinkCard_ikon {
+  scale: 1;
+  transition: scale linear 0.2s;
+}
+
+.aiaLinkCard_bekreftelse {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.aiaLinkCard:hover {
   .aiaLinkCard_ikon {
-    scale: 1;
-    transition: scale linear 0.2s;
-  }
-
-  .aiaLinkCard_bekreftelse {
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-  }
-
-  .aiaLinkCard:hover {
-    .aiaLinkCard_ikon {
-      scale: 1.05;
-    }
-  }
-
-  .aiaLinkCardBekreftelse {
-    padding: 16px;
-    border: 1px solid var(--a-border-subtle);
-    border-top: none;
-    border-radius: 0 0 8px 8px;
-    background: var(--a-surface-warning-subtle);
-    box-shadow:
-      0 1px 3px #0000001f,
-      0 0 0.5px #0000002e;
-    width: 100%;
-    gap: 1rem;
-  }
-
-  .aiaLinkCardBekreftelse:hover {
-    box-shadow: var(--a-shadow-small);
+    scale: 1.05;
   }
 }
+
+.aiaLinkCardBekreftelse {
+  padding: 16px;
+  border: 1px solid var(--a-border-subtle);
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+  background: var(--a-surface-warning-subtle);
+  box-shadow:
+    0 1px 3px #0000001f,
+    0 0 0.5px #0000002e;
+  width: 100%;
+  gap: 1rem;
+}
+
+.aiaLinkCardBekreftelse:hover {
+  box-shadow: var(--a-shadow-small);
+}
+/*}*/

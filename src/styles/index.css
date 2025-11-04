@@ -1,5 +1,5 @@
 /* Define layer order - layers are processed in this order */
-@layer utilities, aksel, local;
+/*@layer utilities, aksel, local;*/
 
-@import "tailwindcss" layer(utilities);
-@import "./aksel.css" layer(aksel);
+@import "tailwindcss"; /*layer(utilities);*/
+@import './aksel.css'; /* layer(aksel); */
