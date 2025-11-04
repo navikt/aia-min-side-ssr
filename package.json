@@ -9,9 +9,10 @@
     "mock": "tsx mock/server.ts",
     "preview": "astro preview",
     "astro": "astro",
-    "lint": "biome lint",
+    "lint": "biome check",
+    "lint:ci": "biome ci",
     "test": "npm run lint && vitest dev",
-    "test:ci": "npm run lint && vitest run",
+    "test:ci": "vitest run",
     "prepare": "husky",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
