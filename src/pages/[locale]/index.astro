@@ -1,33 +1,26 @@
 ---
 import {
-  SIDE_2_URL,
   ARBEIDSSOEKERPERIODER_AGGREGERT_URL,
-  TILGJENGELIGE_BEKREFTELSER_URL,
   ARBEIDSSOKERREGISTERET_OPPSLAG_CLIENT_ID,
   BEKREFTELSE_API_CLIENT_ID,
-} from "astro:env/server";
-import type { Language } from "@src/language/types";
-import "@src/styles/index.css";
-import AiA from "@src/components/aia";
-import LoggVisning from "@src/components/logg-visning";
-import { isLocal } from "../../utils/environment";
-import { fetchData } from "@src/utils/fetch";
-import { logger } from "@src/utils/logger";
-import { getOboToken } from "@src/utils/token";
-import type {
-  AggregertePerioder,
-  TilgjengeligeBekreftelser,
-} from "@navikt/arbeidssokerregisteret-utils";
+  SIDE_2_URL,
+  TILGJENGELIGE_BEKREFTELSER_URL,
+} from 'astro:env/server';
+import type { Language } from '@src/language/types';
+import '@src/styles/index.css';
+import type { AggregertePerioder, TilgjengeligeBekreftelser } from '@navikt/arbeidssokerregisteret-utils';
+import AiA from '@src/components/aia';
+import LoggVisning from '@src/components/logg-visning';
+import { fetchData } from '@src/utils/fetch';
+import { logger } from '@src/utils/logger';
+import { getOboToken } from '@src/utils/token';
+import { isLocal } from '../../utils/environment';
 
-let _aggregertePerioder: AggregertePerioder,
-  _tilgjengeligeBekreftelser: TilgjengeligeBekreftelser[];
+let _aggregertePerioder: AggregertePerioder, _tilgjengeligeBekreftelser: TilgjengeligeBekreftelser[];
 try {
   _aggregertePerioder = await fetchData(
     ARBEIDSSOEKERPERIODER_AGGREGERT_URL,
-    await getOboToken(
-      Astro.locals.token,
-      ARBEIDSSOKERREGISTERET_OPPSLAG_CLIENT_ID,
-    ),
+    await getOboToken(Astro.locals.token, ARBEIDSSOKERREGISTERET_OPPSLAG_CLIENT_ID),
   );
   _tilgjengeligeBekreftelser = await fetchData(
     TILGJENGELIGE_BEKREFTELSER_URL,
@@ -35,7 +28,7 @@ try {
   );
 } catch (error) {
   logger.error(error, `Error fetching data: ${error}`);
-  return new Response("Internal Server Error", { status: 503 });
+  return new Response('Internal Server Error', { status: 503 });
 }
 const _language = Astro.currentLocale as Language;
 ---

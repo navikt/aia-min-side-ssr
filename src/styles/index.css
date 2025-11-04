@@ -2,4 +2,4 @@
 @layer utilities, aksel, local;
 
 @import "tailwindcss" layer(utilities);
-@import './aksel.css' layer(aksel);
+@import "./aksel.css" layer(aksel);
