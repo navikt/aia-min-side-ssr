@@ -19,6 +19,7 @@ jspm_packages/
 # IDE files
 .vscode/
 .idea/
+.zed/
 
 # Environment variables
 .env
