@@ -96,7 +96,8 @@ const LenkeTilSide2Kort = (props: Side2Props) => {
           ) : (
             <div className={'mt-2'}>
               <BodyShort>
-                {`${tekst('duVarRegistrert')} ${prettyPrintDato(aggregertPeriode.startet.tidspunkt, sprak)} ${tekst('til')} ${prettyPrintDato(aggregertPeriode.avsluttet?.tidspunkt!, sprak)}`}
+                {`${tekst('duVarRegistrert')} ${prettyPrintDato(aggregertPeriode.startet.tidspunkt, sprak)} ${tekst('til')} 
+                ${prettyPrintDato(aggregertPeriode.avsluttet?.tidspunkt || '', sprak)}`}
               </BodyShort>
               {tekst('seTidligere')}
             </div>
