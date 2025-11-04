@@ -23,7 +23,7 @@ api.get('/arbeidssoekerperioder-aggregert', (c) => {
 
 api.get('/tilgjengelige-bekreftelser', (c) => {
   logger.info('GET /tilgjengelige-bekreftelser');
-  return c.json([]);
+  return c.json([{}]);
 });
 
 serve(api);
