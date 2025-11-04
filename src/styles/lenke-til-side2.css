@@ -1,4 +1,3 @@
-/*@layer local {*/
 .aiaLinkCard_icon_wrapper {
   align-self: center;
 }
@@ -35,4 +34,3 @@
 .aiaLinkCardBekreftelse:hover {
   box-shadow: var(--a-shadow-small);
 }
-/*}*/

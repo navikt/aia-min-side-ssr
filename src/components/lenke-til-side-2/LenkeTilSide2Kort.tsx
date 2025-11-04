@@ -5,7 +5,6 @@ import type { Language } from '@src/language/types.ts';
 import prettyPrintDato from '../../utils/pretty-print-dato';
 import RegistrertTittel from '../registrert-tittel/registrert-tittel';
 import { SokerJobbIkon } from './SokerJobbIkon';
-import styles from './styles.module.css';
 
 interface Side2Props {
   aggregertPeriode: AggregertPeriode;
@@ -64,14 +63,14 @@ const LenkeTilSide2Kort = (props: Side2Props) => {
   return (
     <div>
       <LinkCard
-        className={`${styles.aiaLinkCard} ${harTilgjengeligBekreftelse ? styles.aiaLinkCard_bekreftelse : ''}`.trim()}
+        className={`aiaLinkCard ${harTilgjengeligBekreftelse ? 'aiaLinkCard_bekreftelse' : ''}`.trim()}
         arrowPosition={'center'}
         data-umami-event={'arbeidssoekerregisteret-for-personbruker.aktivitet'}
         data-umami-event-aktivitet={hentAktivitetData()}
       >
         {/*<LoggInViewport data={hentLoggVisningData()} />*/}
-        <LinkCard.Icon className={styles.aiaLinkCard_icon_wrapper}>
-          <div className={styles.aiaLinkCard_ikon}>
+        <LinkCard.Icon className={'aiaLinkCard_icon_wrapper'}>
+          <div className={'aiaLinkCard_ikon'}>
             <SokerJobbIkon />
           </div>
         </LinkCard.Icon>
@@ -106,7 +105,7 @@ const LenkeTilSide2Kort = (props: Side2Props) => {
       </LinkCard>
       {harTilgjengeligBekreftelse && harAktivArbeidssokerperiode && (
         <Link
-          className={styles.aiaLinkCardBekreftelse}
+          className={'aiaLinkCardBekreftelse'}
           href={`${side2Url}${sprakUrlPostfix}/bekreftelse`}
           variant={'neutral'}
           data-umami-event={'arbeidssoekerregisteret-for-personbruker.aktivitet'}
