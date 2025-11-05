@@ -1,5 +1,5 @@
 import { getAnalyticsInstance } from '@navikt/nav-dekoratoren-moduler';
-import { isLocal } from '@src/utils/environment.ts';
+import { isLocal } from './environment.ts';
 
 export async function logUmamiEvent(eventName: string, data: unknown) {
   try {

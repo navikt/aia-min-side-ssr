@@ -2,7 +2,7 @@ import { ExclamationmarkTriangleFillIcon } from '@navikt/aksel-icons';
 import { type AggregertPeriode, lagHentTekstForSprak } from '@navikt/arbeidssokerregisteret-utils';
 import { BodyShort, Link, LinkCard } from '@navikt/ds-react';
 import type { Language } from '@src/language/types.ts';
-import { logUmamiEvent } from '@src/utils/analytics.ts';
+import { logUmamiEvent } from '../../utils/analytics.ts';
 import prettyPrintDato from '../../utils/pretty-print-dato';
 import RegistrertTittel from '../registrert-tittel/registrert-tittel';
 import { SokerJobbIkon } from './SokerJobbIkon';
