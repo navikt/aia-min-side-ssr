@@ -2,6 +2,7 @@ import { ExclamationmarkTriangleFillIcon } from '@navikt/aksel-icons';
 import { type AggregertPeriode, lagHentTekstForSprak } from '@navikt/arbeidssokerregisteret-utils';
 import { BodyShort, Link, LinkCard } from '@navikt/ds-react';
 import type { Language } from '@src/language/types.ts';
+import { logUmamiEvent } from '@src/utils/analytics.ts';
 import prettyPrintDato from '../../utils/pretty-print-dato';
 import RegistrertTittel from '../registrert-tittel/registrert-tittel';
 import { SokerJobbIkon } from './SokerJobbIkon';
@@ -58,6 +59,12 @@ const LenkeTilSide2Kort = (props: Side2Props) => {
     return 'Trykker på mikrofrontend for aktiv arbeidssøker';
   }
 
+  const onClick = (aktivitet: string) => async () => {
+    await logUmamiEvent('arbeidssoekerregisteret-for-personbruker.aktivitet', {
+      aktivitet,
+    });
+  };
+
   const sprakUrlPostfix = sprak === 'nb' ? '' : `/${sprak}`;
 
   return (
@@ -65,10 +72,8 @@ const LenkeTilSide2Kort = (props: Side2Props) => {
       <LinkCard
         className={`aiaLinkCard ${harTilgjengeligBekreftelse ? 'aiaLinkCard_bekreftelse' : ''}`.trim()}
         arrowPosition={'center'}
-        data-umami-event={'arbeidssoekerregisteret-for-personbruker.aktivitet'}
-        data-umami-event-aktivitet={hentAktivitetData()}
+        onClick={onClick(hentAktivitetData())}
       >
-        {/*<LoggInViewport data={hentLoggVisningData()} />*/}
         <LinkCard.Icon className={'aiaLinkCard_icon_wrapper'}>
           <div className={'aiaLinkCard_ikon'}>
             <SokerJobbIkon />
@@ -109,8 +114,7 @@ const LenkeTilSide2Kort = (props: Side2Props) => {
           className={'aiaLinkCardBekreftelse'}
           href={`${side2Url}${sprakUrlPostfix}/bekreftelse`}
           variant={'neutral'}
-          data-umami-event={'arbeidssoekerregisteret-for-personbruker.aktivitet'}
-          data-umami-event-aktivitet={'Trykker på bekreftelse lenke fra mikrofrontend'}
+          onClick={onClick('Trykker på bekreftelse lenke fra mikrofrontend')}
         >
           <ExclamationmarkTriangleFillIcon
             title='a11y-title'
