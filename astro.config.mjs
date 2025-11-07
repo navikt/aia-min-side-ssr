@@ -58,7 +58,7 @@ export default defineConfig({
       SIDE_2_URL: envField.string({
         context: 'server',
         access: 'public',
-        default: 'https://www.ansatt.dev.nav.no/arbeidssoekerregisteret',
+        default: 'https://www.nav.no/arbeidssoekerregisteret',
       }),
       ARBEIDSSOEKERPERIODER_AGGREGERT_URL: envField.string({
         context: 'server',
