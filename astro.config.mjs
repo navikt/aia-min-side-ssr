@@ -57,7 +57,7 @@ export default defineConfig({
     schema: {
       SIDE_2_URL: envField.string({
         context: 'server',
-        access: 'public',
+        access: 'secret',
         default: 'https://www.nav.no/arbeidssoekerregisteret',
       }),
       ARBEIDSSOEKERPERIODER_AGGREGERT_URL: envField.string({
