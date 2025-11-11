@@ -3,7 +3,7 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev": "astro dev",
+    "dev": "SIDE_2_URL=https://www.ansatt.dev.nav.no/arbeidssoekerregisteret astro dev",
     "start": "astro dev",
     "build": "astro check && astro build",
     "mock": "tsx mock/server.ts",

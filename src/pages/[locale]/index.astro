@@ -3,7 +3,6 @@ import {
   ARBEIDSSOEKERPERIODER_AGGREGERT_URL,
   ARBEIDSSOKERREGISTERET_OPPSLAG_CLIENT_ID,
   BEKREFTELSE_API_CLIENT_ID,
-  SIDE_2_URL,
   TILGJENGELIGE_BEKREFTELSER_URL,
 } from 'astro:env/server';
 import type { Language } from '@src/language/types';
@@ -14,6 +13,7 @@ import LoggVisning from '@src/components/logg-visning';
 import { fetchData } from '@src/utils/fetch';
 import { logger } from '@src/utils/logger';
 import { getOboToken } from '@src/utils/token';
+import { getEnv } from 'astro/env/runtime';
 import { isLocal } from '../../utils/environment';
 
 let _aggregertePerioder: AggregertePerioder, _tilgjengeligeBekreftelser: TilgjengeligeBekreftelser[];
@@ -31,12 +31,13 @@ try {
   return new Response('Internal Server Error', { status: 503 });
 }
 const _language = Astro.currentLocale as Language;
+const side2Url = getEnv('SIDE_2_URL');
 ---
 
 {isLocal && <meta charset="UTF-8" />}
 <section class="aia-min-side-ssr">
   <AiA
-    side2Url={SIDE_2_URL}
+    side2Url={side2Url!}
     aggregertPeriode={_aggregertePerioder[0]}
     tilgjengeligeBekreftelser={_tilgjengeligeBekreftelser}
     sprak={_language}
