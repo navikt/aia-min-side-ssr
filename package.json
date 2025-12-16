@@ -23,7 +23,7 @@
     "@astrojs/node": "9.5.1",
     "@astrojs/react": "4.4.2",
     "@navikt/aksel-icons": "7.35.2",
-    "@navikt/arbeidssokerregisteret-utils": "1.8.3",
+    "@navikt/arbeidssokerregisteret-utils": "1.9.2",
     "@navikt/ds-css": "7.35.2",
     "@navikt/ds-react": "7.35.2",
     "@navikt/nav-dekoratoren-moduler": "3.6.1",
