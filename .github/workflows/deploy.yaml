@@ -37,6 +37,9 @@ jobs:
       - name: "Run tests"
         run: "npm run test:ci"
 
+      - name: Knip
+        run: npx knip --no-exit-code --reporter=markdown >> "$GITHUB_STEP_SUMMARY"
+
       - name: "Build application"
         run: "npm run build"
         env:
