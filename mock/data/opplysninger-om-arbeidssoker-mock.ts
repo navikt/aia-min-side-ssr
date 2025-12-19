@@ -1,5 +1,8 @@
-import type { JaEllerNei, OpplysningerOmArbeidssoker } from '@navikt/arbeidssokerregisteret-utils';
-import type { UtdanningGodkjentValg } from '@navikt/arbeidssokerregisteret-utils/dist/models/sporsmal';
+import type {
+  JaEllerNei,
+  OpplysningerOmArbeidssoker,
+  UtdanningGodkjentValg,
+} from '@navikt/arbeidssokerregisteret-utils';
 
 const opplysningerOmArbeidssoker: OpplysningerOmArbeidssoker[] = [
   {
