@@ -1,8 +1,8 @@
-import { hentSisteOpplysningerOmArbeidssoker } from '@navikt/arbeidssokerregisteret-utils';
-import type {
-  JobbsituasjonBeskrivelse,
-  OpplysningerOmArbeidssokerResponse,
-} from '@navikt/arbeidssokerregisteret-utils/dist/models/opplysninger-om-arbeidssoker';
+import {
+  hentSisteOpplysningerOmArbeidssoker,
+  type JobbsituasjonBeskrivelse,
+  type OpplysningerOmArbeidssokerResponse,
+} from '@navikt/arbeidssokerregisteret-utils';
 
 const PERMITTERT_BESKRIVELSER: JobbsituasjonBeskrivelse[] = ['ER_PERMITTERT', 'MIDLERTIDIG_JOBB', 'NY_JOBB', 'KONKURS'];
 
