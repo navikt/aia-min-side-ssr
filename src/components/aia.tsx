@@ -2,7 +2,7 @@ import type { AggregertPeriode, TilgjengeligeBekreftelser } from '@navikt/arbeid
 import type { Language } from '@src/language/types.ts';
 import LenkeTilSide2Kort from './lenke-til-side-2/LenkeTilSide2Kort.tsx';
 
-export interface AiaProps {
+interface AiaProps {
   aggregertPeriode: AggregertPeriode | null;
   sprak: Language;
   tilgjengeligeBekreftelser?: TilgjengeligeBekreftelser[];

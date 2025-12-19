@@ -2,7 +2,7 @@ import { lagHentTekstForSprak, type OpplysningerOmArbeidssokerResponse } from '@
 import type { Language } from '@src/language/types.ts';
 import { harPermittertSituasjon } from '../../utils/har-permittert-situasjon';
 
-export const TEKSTER = {
+const TEKSTER = {
   nb: {
     registrert: 'Du er registrert som arbeidssøker',
     registrertPermittert: 'Du er registrert som permittert arbeidssøker',
