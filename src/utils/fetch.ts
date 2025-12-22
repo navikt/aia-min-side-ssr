@@ -31,7 +31,7 @@ export const postTilOppslagV3API = async (url: string, oboToken: string) => {
       Authorization: `Bearer ${oboToken}`,
     },
     body: JSON.stringify({
-      type: 'IDENIDENTITETSNUMMER',
+      type: 'IDENTITETSNUMMER',
       identitetsnummer,
     }),
   });
