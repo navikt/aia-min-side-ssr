@@ -2,9 +2,9 @@
 // import { loggVisning, VisningsData } from '../lib/tracking';
 
 import type { TilgjengeligeBekreftelser } from '@navikt/arbeidssokerregisteret-utils';
+import type { Snapshot } from '@navikt/arbeidssokerregisteret-utils/oppslag/v3';
 import { logUmamiEvent } from '@src/utils/analytics.ts';
 import { useEffect } from 'react';
-import type { Snapshot } from '@navikt/arbeidssokerregisteret-utils/oppslag/v3';
 
 type Props = {
   aggregertPeriode: Snapshot | null;

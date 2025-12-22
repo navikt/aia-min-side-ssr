@@ -1,7 +1,7 @@
 import type { TilgjengeligeBekreftelser } from '@navikt/arbeidssokerregisteret-utils';
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import AiA from './aia';
 import { snapshotMock } from '../../mock/data/snapshot-mock.ts';
+import AiA from './aia';
 
 const meta = {
   title: 'AiA',

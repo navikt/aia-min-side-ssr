@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import LenkeTilSide2Kort from './LenkeTilSide2Kort';
 import { snapshotMock } from '../../../mock/data/snapshot-mock.ts';
+import LenkeTilSide2Kort from './LenkeTilSide2Kort';
 
 const meta = {
   title: 'Komponenter/LenkeTilSide2Kort',
