@@ -11,7 +11,7 @@ import type { TilgjengeligeBekreftelser } from '@navikt/arbeidssokerregisteret-u
 import type { Snapshot } from '@navikt/arbeidssokerregisteret-utils/oppslag/v3';
 import AiA from '@src/components/aia';
 import LoggVisning from '@src/components/logg-visning';
-import { fetchData } from '@src/utils/fetch';
+import { fetchData, postTilOppslagV3API } from '@src/utils/fetch';
 import { logger } from '@src/utils/logger';
 import { getOboToken } from '@src/utils/token';
 import { getEnv } from 'astro/env/runtime';
@@ -19,7 +19,7 @@ import { isLocal } from '../../utils/environment';
 
 let _aggregertePerioder: Snapshot, _tilgjengeligeBekreftelser: TilgjengeligeBekreftelser[];
 try {
-  _aggregertePerioder = await fetchData(
+  _aggregertePerioder = await postTilOppslagV3API(
     ARBEIDSSOEKERPERIODER_SNAPSHOT_URL,
     await getOboToken(Astro.locals.token, ARBEIDSSOKERREGISTERET_OPPSLAG_CLIENT_ID),
   );
