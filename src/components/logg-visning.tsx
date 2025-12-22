@@ -1,12 +1,13 @@
 // import { useInView, defaultFallbackInView } from 'react-intersection-observer';
 // import { loggVisning, VisningsData } from '../lib/tracking';
 
-import type { AggregertPeriode, TilgjengeligeBekreftelser } from '@navikt/arbeidssokerregisteret-utils';
+import type { TilgjengeligeBekreftelser } from '@navikt/arbeidssokerregisteret-utils';
 import { logUmamiEvent } from '@src/utils/analytics.ts';
 import { useEffect } from 'react';
+import type { Snapshot } from '@navikt/arbeidssokerregisteret-utils/oppslag/v3';
 
 type Props = {
-  aggregertPeriode: AggregertPeriode | null;
+  aggregertPeriode: Snapshot | null;
   tilgjengeligeBekreftelser?: TilgjengeligeBekreftelser[];
 };
 

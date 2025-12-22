@@ -1,9 +1,10 @@
-import type { AggregertPeriode, TilgjengeligeBekreftelser } from '@navikt/arbeidssokerregisteret-utils';
+import type { TilgjengeligeBekreftelser } from '@navikt/arbeidssokerregisteret-utils';
+import type { Snapshot } from '@navikt/arbeidssokerregisteret-utils/oppslag/v3';
 import type { Language } from '@src/language/types.ts';
 import LenkeTilSide2Kort from './lenke-til-side-2/LenkeTilSide2Kort.tsx';
 
 interface AiaProps {
-  aggregertPeriode: AggregertPeriode | null;
+  aggregertPeriode: Snapshot | null;
   sprak: Language;
   tilgjengeligeBekreftelser?: TilgjengeligeBekreftelser[];
   side2Url: string;

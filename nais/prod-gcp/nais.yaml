@@ -37,7 +37,7 @@ spec:
   env: # Add your environment variables here
     - name: SIDE_2_URL
       value: https://www.nav.no/arbeidssoekerregisteret
-    - name: ARBEIDSSOEKERPERIODER_AGGREGERT_URL
+    - name: ARBEIDSSOEKERPERIODER_SNAPSHOT_URL
       value: http://paw-arbeidssoekerregisteret-api-oppslag-v2/api/v1/arbeidssoekerperioder-aggregert?siste=true
     - name:  ARBEIDSSOKERREGISTERET_OPPSLAG_CLIENT_ID
       value: prod-gcp:paw:paw-arbeidssoekerregisteret-api-oppslag-v2
