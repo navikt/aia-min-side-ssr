@@ -1,25 +1,26 @@
 ---
 import {
-  ARBEIDSSOEKERPERIODER_AGGREGERT_URL,
+  ARBEIDSSOEKERPERIODER_SNAPSHOT_URL,
   ARBEIDSSOKERREGISTERET_OPPSLAG_CLIENT_ID,
   BEKREFTELSE_API_CLIENT_ID,
   TILGJENGELIGE_BEKREFTELSER_URL,
 } from 'astro:env/server';
 import type { Language } from '@src/language/types';
 import '@src/styles/index.css';
-import type { AggregertePerioder, TilgjengeligeBekreftelser } from '@navikt/arbeidssokerregisteret-utils';
+import type { TilgjengeligeBekreftelser } from '@navikt/arbeidssokerregisteret-utils';
+import type { Snapshot } from '@navikt/arbeidssokerregisteret-utils/oppslag/v3';
 import AiA from '@src/components/aia';
 import LoggVisning from '@src/components/logg-visning';
-import { fetchData } from '@src/utils/fetch';
+import { fetchData, postTilOppslagV3API } from '@src/utils/fetch';
 import { logger } from '@src/utils/logger';
 import { getOboToken } from '@src/utils/token';
 import { getEnv } from 'astro/env/runtime';
 import { isLocal } from '../../utils/environment';
 
-let _aggregertePerioder: AggregertePerioder, _tilgjengeligeBekreftelser: TilgjengeligeBekreftelser[];
+let _aggregertePerioder: Snapshot, _tilgjengeligeBekreftelser: TilgjengeligeBekreftelser[];
 try {
-  _aggregertePerioder = await fetchData(
-    ARBEIDSSOEKERPERIODER_AGGREGERT_URL,
+  _aggregertePerioder = await postTilOppslagV3API(
+    ARBEIDSSOEKERPERIODER_SNAPSHOT_URL,
     await getOboToken(Astro.locals.token, ARBEIDSSOKERREGISTERET_OPPSLAG_CLIENT_ID),
   );
   _tilgjengeligeBekreftelser = await fetchData(
@@ -38,13 +39,13 @@ const side2Url = getEnv('SIDE_2_URL');
 <section class="aia-min-side-ssr">
   <AiA
     side2Url={side2Url!}
-    aggregertPeriode={_aggregertePerioder[0]}
+    aggregertPeriode={_aggregertePerioder}
     tilgjengeligeBekreftelser={_tilgjengeligeBekreftelser}
     sprak={_language}
     client:load
   />
   <LoggVisning
-    aggregertPeriode={_aggregertePerioder[0]}
+    aggregertPeriode={_aggregertePerioder}
     tilgjengeligeBekreftelser={_tilgjengeligeBekreftelser}
     client:load
   />

@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { aggregertePerioderMock } from '../../../mock/data/aggregerte-perioder-mock';
+import { snapshotMock } from '../../../mock/data/snapshot-mock.ts';
 import LenkeTilSide2Kort from './LenkeTilSide2Kort';
 
 const meta = {
@@ -16,7 +16,7 @@ type Story = StoryObj<typeof meta>;
 export const AktivArbeidssokerMedTilgjengeligBekreftelse: Story = {
   args: {
     sprak: 'nb',
-    aggregertPeriode: aggregertePerioderMock[0],
+    aggregertPeriode: snapshotMock,
     harTilgjengeligBekreftelse: true,
     side2Url: 'http://localhost:3000/arbeidssoekerregisteret',
   },
@@ -25,7 +25,7 @@ export const AktivArbeidssokerMedTilgjengeligBekreftelse: Story = {
 export const AktivArbeidssoker: Story = {
   args: {
     sprak: 'nb',
-    aggregertPeriode: aggregertePerioderMock[0],
+    aggregertPeriode: snapshotMock,
     harTilgjengeligBekreftelse: false,
     side2Url: 'http://localhost:3000/arbeidssoekerregisteret',
   },
@@ -34,7 +34,7 @@ export const AktivArbeidssoker: Story = {
 export const IkkeAktivArbeidssoker: Story = {
   args: {
     sprak: 'nb',
-    aggregertPeriode: aggregertePerioderMock[1],
+    aggregertPeriode: snapshotMock,
     harTilgjengeligBekreftelse: false,
     side2Url: 'http://localhost:3000/arbeidssoekerregisteret',
   },

@@ -1,4 +1,5 @@
-import { lagHentTekstForSprak, type OpplysningerOmArbeidssokerResponse } from '@navikt/arbeidssokerregisteret-utils';
+import { lagHentTekstForSprak } from '@navikt/arbeidssokerregisteret-utils';
+import type { OpplysningerHendelse } from '@navikt/arbeidssokerregisteret-utils/oppslag/v3';
 import type { Language } from '@src/language/types.ts';
 import { harPermittertSituasjon } from '../../utils/har-permittert-situasjon';
 
@@ -35,7 +36,7 @@ function hentTekstNokkel(harAktivArbeidssokerperiode: boolean, erPermittert: boo
 type Props = {
   sprak: Language;
   harAktivArbeidssokerperiode: boolean;
-  opplysningerOmArbeidssoker: OpplysningerOmArbeidssokerResponse;
+  opplysningerOmArbeidssoker: OpplysningerHendelse | undefined;
 };
 
 const RegistrertTittel: React.FC<Props> = (props: Props) => {

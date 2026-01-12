@@ -1,5 +1,6 @@
 import { ExclamationmarkTriangleFillIcon } from '@navikt/aksel-icons';
-import { type AggregertPeriode, lagHentTekstForSprak } from '@navikt/arbeidssokerregisteret-utils';
+import { lagHentTekstForSprak } from '@navikt/arbeidssokerregisteret-utils';
+import type { Snapshot } from '@navikt/arbeidssokerregisteret-utils/oppslag/v3';
 import { BodyShort, Link, LinkCard } from '@navikt/ds-react';
 import type { Language } from '@src/language/types.ts';
 import { logUmamiEvent } from '../../utils/analytics.ts';
@@ -8,7 +9,7 @@ import RegistrertTittel from '../registrert-tittel/registrert-tittel';
 import { SokerJobbIkon } from './SokerJobbIkon';
 
 interface Side2Props {
-  aggregertPeriode: AggregertPeriode;
+  aggregertPeriode: Snapshot;
   sprak: Language;
   harTilgjengeligBekreftelse: boolean;
   side2Url: string;
@@ -46,7 +47,7 @@ const TEKSTER = {
 const LenkeTilSide2Kort = (props: Side2Props) => {
   const { harTilgjengeligBekreftelse, sprak, aggregertPeriode, side2Url } = props;
   const harAktivArbeidssokerperiode = Boolean(aggregertPeriode?.startet) && !aggregertPeriode?.avsluttet;
-  const bekreftelse = aggregertPeriode.bekreftelser[0];
+  const bekreftelse = aggregertPeriode.bekreftelse;
   const tekst = lagHentTekstForSprak(TEKSTER, sprak);
 
   function hentAktivitetData() {
@@ -83,7 +84,7 @@ const LenkeTilSide2Kort = (props: Side2Props) => {
           <LinkCard.Anchor href={`${side2Url}${sprakUrlPostfix}`}>
             <RegistrertTittel
               harAktivArbeidssokerperiode={harAktivArbeidssokerperiode}
-              opplysningerOmArbeidssoker={aggregertPeriode?.opplysningerOmArbeidssoeker ?? []}
+              opplysningerOmArbeidssoker={aggregertPeriode?.opplysning}
               sprak={sprak}
             />
           </LinkCard.Anchor>

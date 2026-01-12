@@ -2,7 +2,7 @@ import { serve } from '@hono/node-server';
 import { logger } from '@src/utils/logger.ts';
 import { Hono } from 'hono';
 import { cors } from 'hono/cors';
-import { aggregertePerioderMock } from './data/aggregerte-perioder-mock.ts';
+import { snapshotMock } from './data/snapshot-mock.ts';
 
 const api = new Hono();
 
@@ -16,9 +16,8 @@ api.use(
 );
 
 api.get('/arbeidssoekerperioder-aggregert', (c) => {
-  const data = aggregertePerioderMock.slice(0, 1);
   logger.info('GET /arbeidssoekerperioder-aggregert');
-  return c.json(data);
+  return c.json(snapshotMock);
 });
 
 api.get('/tilgjengelige-bekreftelser', (c) => {

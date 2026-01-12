@@ -60,7 +60,7 @@ export default defineConfig({
         access: 'secret',
         default: 'https://www.nav.no/arbeidssoekerregisteret',
       }),
-      ARBEIDSSOEKERPERIODER_AGGREGERT_URL: envField.string({
+      ARBEIDSSOEKERPERIODER_SNAPSHOT_URL: envField.string({
         context: 'server',
         access: 'secret',
         default: 'http://localhost:3000/arbeidssoekerperioder-aggregert',

@@ -1,6 +1,6 @@
 import type { TilgjengeligeBekreftelser } from '@navikt/arbeidssokerregisteret-utils';
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { aggregertePerioderMock } from '../../mock/data/aggregerte-perioder-mock.ts';
+import { snapshotMock } from '../../mock/data/snapshot-mock.ts';
 import AiA from './aia';
 
 const meta = {
@@ -22,7 +22,7 @@ type Story = StoryObj<typeof meta>;
 export const Arbeidssøker: Story = {
   args: {
     sprak: 'nb',
-    aggregertPeriode: aggregertePerioderMock[0],
+    aggregertPeriode: snapshotMock,
     tilgjengeligeBekreftelser: [],
     side2Url: 'http://localhost:3000/test',
   },
@@ -31,7 +31,7 @@ export const Arbeidssøker: Story = {
 export const ArbeidssokerMedTilgjengeligBekreftelse: Story = {
   args: {
     sprak: 'nb',
-    aggregertPeriode: aggregertePerioderMock[0],
+    aggregertPeriode: snapshotMock,
     tilgjengeligeBekreftelser: [
       {
         periodeId: '1',
@@ -46,7 +46,7 @@ export const ArbeidssokerMedTilgjengeligBekreftelse: Story = {
 export const AvsluttetPeriode: Story = {
   args: {
     sprak: 'nb',
-    aggregertPeriode: aggregertePerioderMock[1],
+    aggregertPeriode: snapshotMock,
     side2Url: 'http://localhost:3000/test',
   },
 };
