@@ -6,16 +6,19 @@ export const snapshotMock: Snapshot = {
   startet: {
     type: 'PERIODE_STARTET_V1',
     tidspunkt: '2025-12-22T07:24:04.989Z',
-    utfoertAv: {
-      type: 'SLUTTBRUKER',
-      id: 'string',
-      sikkerhetsnivaa: 'string',
-    },
-    kilde: 'string',
-    aarsak: 'string',
-    tidspunktFraKilde: {
+    sendtInnAv: {
       tidspunkt: '2025-12-22T07:24:04.989Z',
-      avviksType: 'UKJENT_VERDI',
+      utfoertAv: {
+        type: 'SLUTTBRUKER',
+        id: 'string',
+        sikkerhetsnivaa: 'string',
+      },
+      kilde: 'string',
+      aarsak: 'string',
+      tidspunktFraKilde: {
+        tidspunkt: '2025-12-22T07:24:04.989Z',
+        avviksType: 'UKJENT_VERDI',
+      },
     },
   },
   // avsluttet: {
@@ -35,6 +38,7 @@ export const snapshotMock: Snapshot = {
   // },
   opplysning: {
     type: 'OPPLYSNINGER_V4',
+    tidspunkt: '2025-12-22T07:24:04.989Z',
     id: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
     sendtInnAv: {
       tidspunkt: '2025-12-22T07:24:04.989Z',
@@ -77,6 +81,7 @@ export const snapshotMock: Snapshot = {
   profilering: {
     type: 'PROFILERING_V1',
     id: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
+    tidspunkt: '2025-12-22T07:24:04.989Z',
     opplysningerOmArbeidssokerId: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
     sendtInnAv: {
       tidspunkt: '2025-12-22T07:24:04.989Z',
@@ -99,6 +104,7 @@ export const snapshotMock: Snapshot = {
   egenvurdering: {
     type: 'EGENVURDERING_V1',
     id: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
+    tidspunkt: '2025-12-22T07:24:04.989Z',
     profileringId: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
     sendtInnAv: {
       tidspunkt: '2025-12-22T07:24:04.989Z',
@@ -120,6 +126,7 @@ export const snapshotMock: Snapshot = {
   bekreftelse: {
     type: 'BEKREFTELSE_V1',
     id: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
+    tidspunkt: '2025-12-22T07:24:04.989Z',
     bekreftelsesloesning: 'UKJENT_VERDI',
     status: 'GYLDIG',
     svar: {
