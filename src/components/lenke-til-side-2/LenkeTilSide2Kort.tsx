@@ -112,16 +112,16 @@ const LenkeTilSide2Kort = (props: Side2Props) => {
       </LinkCard>
       {harTilgjengeligBekreftelse && harAktivArbeidssokerperiode && (
         <Link
+          data-color='neutral'
           className={'aiaLinkCardBekreftelse'}
           href={`${side2Url}${sprakUrlPostfix}/bekreftelse`}
-          variant={'neutral'}
           onClick={onClick('Trykker på bekreftelse lenke fra mikrofrontend')}
         >
           <ExclamationmarkTriangleFillIcon
             title='a11y-title'
             fontSize='1.5rem'
             width={48}
-            style={{ color: 'var(--a-icon-warning)' }}
+            style={{ color: 'var(--ax-bg-warning-strong)' }}
           />
           {tekst('bekreft')}
         </Link>
