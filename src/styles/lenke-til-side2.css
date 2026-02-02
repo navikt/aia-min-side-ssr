@@ -20,10 +20,10 @@
 
 .aiaLinkCardBekreftelse {
   padding: 16px;
-  border: 1px solid var(--a-border-subtle);
+  border: 1px solid var(--ax-border-subtle);
   border-top: none;
   border-radius: 0 0 8px 8px;
-  background: var(--a-surface-warning-subtle);
+  background: var(--ax-bg-warning-moderate);
   box-shadow:
     0 1px 3px #0000001f,
     0 0 0.5px #0000002e;
@@ -32,5 +32,5 @@
 }
 
 .aiaLinkCardBekreftelse:hover {
-  box-shadow: var(--a-shadow-small);
+  box-shadow: var(--ax-shadow-dialog);
 }

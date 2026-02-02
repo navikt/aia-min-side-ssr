@@ -7,6 +7,7 @@ function tilOpplysningerHendelse(situasjon: Beskrivelse, detaljer?: any): Opplys
   return {
     type: 'OPPLYSNINGER_V4',
     id: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
+    tidspunkt: '2025-12-22T07:24:04.989Z',
     sendtInnAv: {
       tidspunkt: '2025-12-22T07:24:04.989Z',
       utfoertAv: {

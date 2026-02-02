@@ -15,8 +15,8 @@ api.use(
   }),
 );
 
-api.get('/arbeidssoekerperioder-aggregert', (c) => {
-  logger.info('GET /arbeidssoekerperioder-aggregert');
+api.post('/arbeidssoekerperioder-aggregert', (c) => {
+  logger.info('POST /arbeidssoekerperioder-aggregert');
   return c.json(snapshotMock);
 });
 
