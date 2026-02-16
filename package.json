@@ -39,7 +39,7 @@
     "@biomejs/biome": "2.3.13",
     "@chromatic-com/storybook": "5.0.0",
     "@hono/node-server": "1.19.9",
-    "@navikt/ds-tailwind": "8.2.0",
+    "@navikt/ds-tailwind": "8.3.0",
     "@storybook/addon-a11y": "10.2.3",
     "@storybook/addon-docs": "10.2.3",
     "@storybook/addon-onboarding": "10.2.3",
