@@ -23,7 +23,7 @@ Siden noen av modulene hentes fra GitHubs package registry må du også gjøre l
 
 - Opprett et PAT (github => settings => developer settings => personal access tokens => tokens (classic)) med `read:packages` scope
 - Konfigurer SSO mot NAVIKT for tokenet
-- Bruk tokenet som passord ved login `npm login --registry https://npm.pkg.github.com`
+- Bruk tokenet som passord ved login `pnpm login --registry https://npm.pkg.github.com`
 - På roten av repoet lager du en `.npmrc` fil med dette innholdet
 
 ```
@@ -36,9 +36,9 @@ save-exact=true
 Deretter fortsette du med
 1. klon repo
 2. bruk rett versjon av Node.js `nvm use`
-3. Installer dependencies: `npm i`
-4. Start hono mockserver: `npm run mock`
-5. Med mockserver kjørende i egen terminal, start appen: `npm run dev`
+3. Installer dependencies: `pnpm i`
+4. Start hono mockserver: `pnpm run mock`
+5. Med mockserver kjørende i egen terminal, start appen: `pnpm run dev`
 6. Appen nås på http://localhost:4321/
 
 ## Deploye kun til dev

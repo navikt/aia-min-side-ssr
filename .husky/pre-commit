@@ -1,2 +1,2 @@
-npm run astro check
+pnpm run astro check
 npx lint-staged
