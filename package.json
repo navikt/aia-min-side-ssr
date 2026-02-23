@@ -11,10 +11,10 @@
     "astro": "astro",
     "lint": "biome check",
     "lint:ci": "biome ci",
-    "test": "npm run lint && vitest dev",
+    "test": "pnpm run lint && vitest dev",
     "test:ci": "vitest run",
     "prepare": "husky",
-    "refresh": "rm -rf node_modules && rm package-lock.json && npm i --ignore-scripts",
+    "refresh": "rm -rf node_modules && rm pnpm-lock.yaml && pnpm i --ignore-scripts",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
