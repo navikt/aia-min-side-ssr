@@ -21,7 +21,7 @@
   "dependencies": {
     "@astrojs/check": "0.9.6",
     "@astrojs/node": "9.5.4",
-    "@astrojs/react": "4.4.2",
+    "@astrojs/react": "5.0.1",
     "@navikt/aksel-icons": "8.5.2",
     "@navikt/arbeidssokerregisteret-utils": "2.1.0",
     "@navikt/ds-css": "8.5.2",
