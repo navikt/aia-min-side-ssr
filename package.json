@@ -19,9 +19,9 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
-    "@astrojs/check": "0.9.6",
-    "@astrojs/node": "9.5.4",
-    "@astrojs/react": "4.4.2",
+    "@astrojs/check": "0.9.8",
+    "@astrojs/node": "10.0.4",
+    "@astrojs/react": "5.0.2",
     "@navikt/aksel-icons": "8.5.2",
     "@navikt/arbeidssokerregisteret-utils": "2.1.0",
     "@navikt/ds-css": "8.5.2",
@@ -29,11 +29,10 @@
     "@navikt/nav-dekoratoren-moduler": "3.6.2",
     "@navikt/oasis": "4.1.4",
     "@opentelemetry/sdk-node": "0.212.0",
-    "astro": "5.17.3",
+    "astro": "6.1.1",
     "pino": "10.3.1",
     "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "rollup-plugin-import-map": "3.0.0"
+    "react-dom": "18.2.0"
   },
   "devDependencies": {
     "@biomejs/biome": "2.4.4",

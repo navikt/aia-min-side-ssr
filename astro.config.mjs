@@ -3,8 +3,6 @@ import react from '@astrojs/react';
 import tailwindcss from '@tailwindcss/vite';
 import { defineConfig, envField } from 'astro/config';
 import prefixer from 'postcss-prefix-selector';
-import { rollupImportMapPlugin } from 'rollup-plugin-import-map';
-import importmap from './importmap.json';
 
 // https://astro.build/config
 export default defineConfig({
@@ -28,16 +26,10 @@ export default defineConfig({
   integrations: [
     react(),
     {
-      name: 'importmap',
+      name: 'importmap-externals',
       hooks: {
-        'astro:build:setup': ({ vite, target }) => {
-          if (target === 'client') {
-            vite.plugins.push({
-              ...rollupImportMapPlugin(importmap),
-              enforce: 'pre',
-              apply: 'build',
-            });
-          }
+        'astro:build:setup': ({ vite }) => {
+          vite.environments.client.build.rollupOptions.external = ['react', 'react-dom'];
         },
       },
     },
@@ -47,6 +39,7 @@ export default defineConfig({
     locales: ['nb', 'nn', 'en'],
     routing: {
       prefixDefaultLocale: true,
+      redirectToDefaultLocale: true,
     },
   },
   output: 'server',
