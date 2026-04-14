@@ -29,7 +29,7 @@
     "@navikt/nav-dekoratoren-moduler": "3.7.1",
     "@navikt/oasis": "4.1.4",
     "@opentelemetry/sdk-node": "0.214.0",
-    "astro": "6.1.5",
+    "astro": "6.1.6",
     "pino": "10.3.1",
     "react": "18.2.0",
     "react-dom": "18.2.0"
@@ -52,7 +52,7 @@
     "hono": "4.12.12",
     "husky": "9.1.7",
     "jsdom": "29.0.2",
-    "knip": "5.85.0",
+    "knip": "6.4.1",
     "lint-staged": "16.4.0",
     "playwright": "1.59.1",
     "postcss": "8.5.9",
