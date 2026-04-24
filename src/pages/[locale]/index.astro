@@ -36,7 +36,7 @@ const side2Url = getEnv('SIDE_2_URL');
 ---
 
 {isLocal && <meta charset="UTF-8" />}
-<section class="aia-min-side-ssr">
+<div class="aia-min-side-ssr">
   <AiA
     side2Url={side2Url!}
     aggregertPeriode={_aggregertePerioder}
@@ -49,4 +49,4 @@ const side2Url = getEnv('SIDE_2_URL');
     tilgjengeligeBekreftelser={_tilgjengeligeBekreftelser}
     client:load
   />
-</section>
+</div>
