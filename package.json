@@ -55,7 +55,7 @@
     "knip": "6.4.1",
     "lint-staged": "16.4.0",
     "playwright": "1.59.1",
-    "postcss": "8.5.9",
+    "postcss": "8.5.10",
     "postcss-prefix-selector": "2.1.1",
     "storybook": "10.3.5",
     "tailwindcss": "4.2.2",
