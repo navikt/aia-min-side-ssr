@@ -1,9 +1,9 @@
 import { DinSituasjon, mapSituasjonTilBeskrivelse, PermittertSvar } from '@navikt/arbeidssokerregisteret-utils';
-import type { Beskrivelse, OpplysningerHendelse } from '@navikt/arbeidssokerregisteret-utils/oppslag/v3';
+import type { Beskrivelse, JobbDetaljer, OpplysningerHendelse } from '@navikt/arbeidssokerregisteret-utils/oppslag/v3';
 import { describe, expect, test } from 'vitest';
 import { harPermittertSituasjon } from './har-permittert-situasjon';
 
-function tilOpplysningerHendelse(situasjon: Beskrivelse, detaljer?: any): OpplysningerHendelse {
+function tilOpplysningerHendelse(situasjon: Beskrivelse, detaljer?: JobbDetaljer): OpplysningerHendelse {
   return {
     type: 'OPPLYSNINGER_V4',
     id: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
