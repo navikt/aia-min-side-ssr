@@ -23,13 +23,11 @@ let _aggregertePerioder: Snapshot, _tilgjengeligeBekreftelser: TilgjengeligeBekr
 try {
   [_aggregertePerioder, _tilgjengeligeBekreftelser] = await Promise.all([
     postTilOppslagV3API(
-        ARBEIDSSOEKERPERIODER_SNAPSHOT_URL,
-        await getOboToken(Astro.locals.token, ARBEIDSSOKERREGISTERET_OPPSLAG_CLIENT_ID),
+      ARBEIDSSOEKERPERIODER_SNAPSHOT_URL,
+      await getOboToken(Astro.locals.token, ARBEIDSSOKERREGISTERET_OPPSLAG_CLIENT_ID),
     ),
-    fetchData(
-        TILGJENGELIGE_BEKREFTELSER_URL,
-        await getOboToken(Astro.locals.token, BEKREFTELSE_API_CLIENT_ID)
-    )]);
+    fetchData(TILGJENGELIGE_BEKREFTELSER_URL, await getOboToken(Astro.locals.token, BEKREFTELSE_API_CLIENT_ID)),
+  ]);
 } catch (error) {
   logger.error(error, `Error fetching data: ${error}`);
   return new Response('Internal Server Error', { status: 503 });
