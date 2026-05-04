@@ -4,7 +4,7 @@ import type { OpplysningerHendelse } from '@navikt/arbeidssokerregisteret-utils/
 const PERMITTERT_BESKRIVELSER: JobbsituasjonBeskrivelse[] = ['ER_PERMITTERT', 'MIDLERTIDIG_JOBB', 'NY_JOBB', 'KONKURS'];
 
 export function harPermittertSituasjon(opplysning: OpplysningerHendelse | undefined): boolean {
-  if (!opplysning || !opplysning.jobbsituasjon) {
+  if (!opplysning?.jobbsituasjon) {
     return false;
   }
 
