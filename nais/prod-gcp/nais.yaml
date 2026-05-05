@@ -6,6 +6,10 @@ metadata:
   labels:
     team: paw
 spec:
+  observability:
+    autoInstrumentation:
+      enabled: true
+      runtime: nodejs
   tokenx:
     enabled: true
   image: {{ image }}
