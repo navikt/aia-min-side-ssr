@@ -21,20 +21,15 @@ const _language = Astro.currentLocale as Language;
 const side2Url = getEnv('SIDE_2_URL');
 let _aggregertePerioder: Snapshot, _tilgjengeligeBekreftelser: TilgjengeligeBekreftelser[];
 try {
-  const oboStart = performance.now();
   const [oppslagOboToken, bekreftelseOboToken] = await Promise.all([
     getOboToken(Astro.locals.token, ARBEIDSSOKERREGISTERET_OPPSLAG_CLIENT_ID),
     getOboToken(Astro.locals.token, BEKREFTELSE_API_CLIENT_ID),
   ]);
-  const oboMs = Math.round(performance.now() - oboStart);
 
-  const fetchStart = performance.now();
   [_aggregertePerioder, _tilgjengeligeBekreftelser] = await Promise.all([
     postTilOppslagV3API(ARBEIDSSOEKERPERIODER_SNAPSHOT_URL, oppslagOboToken),
     fetchData(TILGJENGELIGE_BEKREFTELSER_URL, bekreftelseOboToken),
   ]);
-  const fetchMs = Math.round(performance.now() - fetchStart);
-  logger.info({ oboMs, fetchMs, totalMs: oboMs + fetchMs }, 'SSR data-fetch timing');
 } catch (error) {
   logger.error(error, `Error fetching data: ${error}`);
   return new Response('Internal Server Error', { status: 503 });
