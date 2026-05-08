@@ -1,10 +1,35 @@
 version: 2
 updates:
-  # Enable version updates for pnpm
   - package-ecosystem: "pnpm"
     directory: "/"
-    # Check the pnpm registry for updates once a week
     schedule:
       interval: "weekly"
     cooldown:
       default-days: 7
+    groups:
+      aksel:
+        patterns:
+          - "@navikt/aksel-*"
+          - "@navikt/ds-*"
+      storybook:
+        patterns:
+          - "storybook"
+          - "@storybook/*"
+      react:
+        patterns:
+          - "react"
+          - "react-dom"
+          - "@types/react"
+          - "@types/react-dom"
+      astro:
+        patterns:
+          - "astro"
+          - "@astrojs/*"
+      vitest:
+        patterns:
+          - "vitest"
+          - "@vitest/*"
+      tailwindcss:
+        patterns:
+          - "tailwindcss"
+          - "@tailwindcss/*"
