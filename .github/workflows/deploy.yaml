@@ -5,10 +5,15 @@ on:
       - "main"
       - "dev/*"
 
+concurrency:
+  group: deploy-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   build:
     name: "test & build"
     runs-on: "ubuntu-latest"
+    timeout-minutes: 15
 
     permissions:
       contents: "read"
@@ -16,11 +21,11 @@ jobs:
       packages: "write"
 
     steps:
-      - uses: "actions/checkout@v5"
-      - uses: "pnpm/action-setup@v4"
+      - uses: "actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd" # v5
+      - uses: "pnpm/action-setup@b906affcce14559ad1aafd4ab0e942779e9f58b1" # v4
         with:
           version: 10
-      - uses: "actions/setup-node@v5"
+      - uses: "actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444" # v5
         with:
           node-version: 24.15.0
           registry-url: "https://npm.pkg.github.com"
@@ -31,8 +36,8 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.READER_TOKEN }}
 
-      - name: "Install playwright"
-        run: "pnpm dlx playwright install"
+      - name: "Install playwright browsers"
+        run: "pnpm exec playwright install chromium --with-deps"
 
       - name: "Run Biome lint"
         run: "pnpm run lint:ci"
@@ -52,11 +57,11 @@ jobs:
         run: "pnpm run build-storybook"
 
       - name: "Upload to cdn"
-        uses: nais/deploy/actions/cdn-upload/v2@master
+        uses: nais/deploy/actions/cdn-upload/v2@v2
         with:
           team: paw
           source: ./dist/client/_astro
-          destination: "aia-min-side-ssr" # Change this to your application name
+          destination: "aia-min-side-ssr"
 
       - name: "Build and push"
         uses: nais/docker-build-push@v0
@@ -68,21 +73,23 @@ jobs:
       image: ${{ steps.docker-build-push.outputs.image }}
 
   update-manifest-dev:
+    # TODO: pin to release tag when navikt/tms-deploy publishes versioned releases
     uses: navikt/tms-deploy/.github/workflows/oppdater-mikrofrontend-manifest-v3.yaml@main
     needs: build
     with:
-      id: "aia-min-side" # Change this to your application name
-      url: "http://aia-min-side-ssr.paw" # Change the url to contain your application name. Example: http://my-app
-      appname: "aia-min-side-ssr" # Change this to your application name
-      namespace: "paw" # Change this to your namespace
+      id: "aia-min-side"
+      url: "http://aia-min-side-ssr.paw"
+      appname: "aia-min-side-ssr"
+      namespace: "paw"
       cluster: dev-gcp
       commitmsg: ${{ github.event.head_commit.message}}
-      fallback: "fallback" # Should containt the path to the fallback page after src/pages/[locale]/... Only needs to be changed if you move the fallback in the pages structure
+      fallback: "fallback"
       ssr: true
     secrets: inherit
 
   update-manifest-prod:
    if: github.ref == 'refs/heads/main'
+   # TODO: pin to release tag when navikt/tms-deploy publishes versioned releases
    uses: navikt/tms-deploy/.github/workflows/oppdater-mikrofrontend-manifest-v3.yaml@main
    needs: build
    with:
@@ -92,18 +99,19 @@ jobs:
      namespace: "paw"
      cluster: prod-gcp
      commitmsg: ${{ github.event.head_commit.message}}
-     fallback: "fallback" # Should containt the path to the fallback page after src/pages/[locale]/...
+     fallback: "fallback"
      ssr: true
    secrets: inherit
 
   deploy-dev:
     runs-on: "ubuntu-latest"
+    timeout-minutes: 10
     permissions:
       contents: "read"
       id-token: "write"
     needs: [build, update-manifest-dev]
     steps:
-      - uses: "actions/checkout@v4"
+      - uses: "actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd" # v5
       - name: "Deploy to dev"
         uses: "nais/deploy/actions/deploy@v2"
         env:
@@ -114,13 +122,14 @@ jobs:
   deploy-prod:
    if: github.ref == 'refs/heads/main'
    runs-on: "ubuntu-latest"
+   timeout-minutes: 10
    permissions:
      contents: "read"
      id-token: "write"
    needs: [build, update-manifest-prod]
 
    steps:
-     - uses: "actions/checkout@v4"
+     - uses: "actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd" # v5
      - name: "Deploy to prod"
        uses: "nais/deploy/actions/deploy@v2"
        env:
