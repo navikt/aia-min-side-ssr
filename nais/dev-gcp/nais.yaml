@@ -36,9 +36,9 @@ spec:
         - application: paw-arbeidssoekerregisteret-api-bekreftelse
   resources:
     limits:
-      memory: 768Mi
+      memory: 	160Mi
     requests:
-      cpu: "50m"
+      cpu: 50m
       memory: 160Mi
   env: # Add your environment variables here
     - name: SIDE_2_URL
