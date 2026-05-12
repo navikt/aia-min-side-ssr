@@ -21,7 +21,7 @@ spec:
     path: /api/internal/isReady
     initialDelay: 10
   replicas:
-    min: 2
+    min: 1
     max: 4
   accessPolicy:
     inbound:
@@ -34,10 +34,10 @@ spec:
         - application: paw-arbeidssoekerregisteret-api-bekreftelse
   resources:
     limits:
-      memory: 768Mi
+      memory: 384Mi
     requests:
-      cpu: "20m"
-      memory: 128Mi
+      cpu: "52m"
+      memory: 256Mi
   env: # Add your environment variables here
     - name: SIDE_2_URL
       value: https://www.nav.no/arbeidssoekerregisteret
