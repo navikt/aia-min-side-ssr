@@ -76,6 +76,9 @@ jobs:
     # TODO: pin to release tag when navikt/tms-deploy publishes versioned releases
     uses: navikt/tms-deploy/.github/workflows/oppdater-mikrofrontend-manifest-v3.yaml@main
     needs: build
+    permissions:
+      contents: "read"
+      packages: "read"
     with:
       id: "aia-min-side"
       url: "http://aia-min-side-ssr.paw"
@@ -92,6 +95,9 @@ jobs:
    # TODO: pin to release tag when navikt/tms-deploy publishes versioned releases
    uses: navikt/tms-deploy/.github/workflows/oppdater-mikrofrontend-manifest-v3.yaml@main
    needs: build
+   permissions:
+     contents: "read"
+     packages: "read"
    with:
      id: "aia-min-side"
      url: "http://aia-min-side-ssr.paw"
