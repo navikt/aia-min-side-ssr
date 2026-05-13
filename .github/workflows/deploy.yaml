@@ -57,14 +57,14 @@ jobs:
         run: "pnpm run build-storybook"
 
       - name: "Upload to cdn"
-        uses: nais/deploy/actions/cdn-upload/v2@v2
+        uses: nais/deploy/actions/cdn-upload/v2@a7f8690f9b367fcbf5348a0a1e21d44f1aae50eb # v2
         with:
           team: paw
           source: ./dist/client/_astro
           destination: "aia-min-side-ssr"
 
       - name: "Build and push"
-        uses: nais/docker-build-push@v0
+        uses: nais/docker-build-push@751a312f0803eb96a05a41fadf51be19b7be362c # v0
         id: docker-build-push
         with:
           team: paw
@@ -73,8 +73,7 @@ jobs:
       image: ${{ steps.docker-build-push.outputs.image }}
 
   update-manifest-dev:
-    # TODO: pin to release tag when navikt/tms-deploy publishes versioned releases
-    uses: navikt/tms-deploy/.github/workflows/oppdater-mikrofrontend-manifest-v3.yaml@main
+    uses: navikt/tms-deploy/.github/workflows/oppdater-mikrofrontend-manifest-v3.yaml@67dc876fb9e1a0b115e47a36fd46a1c7b0064d4c # main
     needs: build
     permissions:
       contents: "read"
@@ -92,8 +91,7 @@ jobs:
 
   update-manifest-prod:
    if: github.ref == 'refs/heads/main'
-   # TODO: pin to release tag when navikt/tms-deploy publishes versioned releases
-   uses: navikt/tms-deploy/.github/workflows/oppdater-mikrofrontend-manifest-v3.yaml@main
+   uses: navikt/tms-deploy/.github/workflows/oppdater-mikrofrontend-manifest-v3.yaml@67dc876fb9e1a0b115e47a36fd46a1c7b0064d4c # main
    needs: build
    permissions:
      contents: "read"
@@ -119,7 +117,7 @@ jobs:
     steps:
       - uses: "actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd" # v5
       - name: "Deploy to dev"
-        uses: "nais/deploy/actions/deploy@v2"
+        uses: "nais/deploy/actions/deploy@a7f8690f9b367fcbf5348a0a1e21d44f1aae50eb" # v2
         env:
           CLUSTER: dev-gcp
           RESOURCE: nais/dev-gcp/nais.yaml
@@ -137,7 +135,7 @@ jobs:
    steps:
      - uses: "actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd" # v5
      - name: "Deploy to prod"
-       uses: "nais/deploy/actions/deploy@v2"
+       uses: "nais/deploy/actions/deploy@a7f8690f9b367fcbf5348a0a1e21d44f1aae50eb" # v2
        env:
          CLUSTER: prod-gcp
          RESOURCE: nais/prod-gcp/nais.yaml
