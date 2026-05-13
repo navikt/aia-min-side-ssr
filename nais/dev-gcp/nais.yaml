@@ -36,10 +36,10 @@ spec:
         - application: paw-arbeidssoekerregisteret-api-bekreftelse
   resources:
     limits:
-      memory: 	160Mi
+      memory: 160Mi
     requests:
       cpu: 50m
-      memory: 160Mi
+      memory: 128Mi
   env: # Add your environment variables here
     - name: SIDE_2_URL
       value: https://www.ansatt.dev.nav.no/arbeidssoekerregisteret
