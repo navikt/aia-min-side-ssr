@@ -27,7 +27,7 @@
     "@navikt/arbeidssokerregisteret-utils": "2.1.0",
     "@navikt/ds-css": "8.10.6",
     "@navikt/ds-react": "8.10.6",
-    "@navikt/nav-dekoratoren-moduler": "3.7.1",
+    "@navikt/nav-dekoratoren-moduler": "4.1.1",
     "@navikt/oasis": "4.1.4",
     "astro": "6.3.5",
     "pino": "10.3.1",
