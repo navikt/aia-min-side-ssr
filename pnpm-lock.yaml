@@ -68,8 +68,8 @@ importers:
         specifier: 2.0.4
         version: 2.0.4(hono@4.12.21)
       '@navikt/ds-tailwind':
-        specifier: 8.10.6
-        version: 8.10.6
+        specifier: 8.11.0
+        version: 8.11.0
       '@storybook/addon-a11y':
         specifier: 10.4.0
         version: 10.4.0(storybook@10.4.0(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(@testing-library/dom@10.4.1)(@types/react@19.2.15)(prettier@3.8.1)(react-dom@19.2.0(react@19.2.0))(react@19.2.0))
@@ -1024,8 +1024,8 @@ packages:
       react: ^17 || ^18 || ^19
       react-dom: ^17 || ^18 || ^19
 
-  '@navikt/ds-tailwind@8.10.6':
-    resolution: {integrity: sha512-PIt2eg5sJgMzdTgi22/OTQOI/EGwYa7vk8aXNrmHiuY+UGhlO27/9C0PJq4NQ4rPYXvpQ2k1icFTWQ9C9PZOyg==, tarball: https://npm.pkg.github.com/download/@navikt/ds-tailwind/8.10.6/996cbf5080b3925a352fb42fae024755b2bbad63}
+  '@navikt/ds-tailwind@8.11.0':
+    resolution: {integrity: sha512-6iQwn9+ePeui1iVC4AzBbK5eh/g0YVAXXL+nJ/r0oHnRQ/CSYouDoBoysN1pxXsFBPRSCCM0CTvloj0HOtd1ew==, tarball: https://npm.pkg.github.com/download/@navikt/ds-tailwind/8.11.0/1f96dab633a31308edb91a13a6d85a8d1231df53}
 
   '@navikt/ds-tokens@8.10.6':
     resolution: {integrity: sha512-tsYS9Wy5/t6fryllnQfbzNkjD8lTA4b+enkbDj0SLTYfB4naCeXO4cog1jl3u/y3IhqqVTIMnyO7ujv1mLbYTg==, tarball: https://npm.pkg.github.com/download/@navikt/ds-tokens/8.10.6/3070167a2ab8445b7f04935d47175c87cc0167a3}
@@ -4780,7 +4780,7 @@ snapshots:
       react-day-picker: 9.14.0(react@19.2.0)
       react-dom: 19.2.0(react@19.2.0)
 
-  '@navikt/ds-tailwind@8.10.6': {}
+  '@navikt/ds-tailwind@8.11.0': {}
 
   '@navikt/ds-tokens@8.10.6': {}
 
