@@ -31,8 +31,8 @@
     "@navikt/oasis": "4.1.4",
     "astro": "6.3.7",
     "pino": "10.3.1",
-    "react": "19.2.0",
-    "react-dom": "19.2.0"
+    "react": "19.2.6",
+    "react-dom": "19.2.6"
   },
   "devDependencies": {
     "@biomejs/biome": "2.4.15",
