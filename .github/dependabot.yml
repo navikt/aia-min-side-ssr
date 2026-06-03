@@ -3,9 +3,14 @@ updates:
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: weekly
+      day: monday
+      time: "06:00"
+      timezone: Europe/Oslo
     cooldown:
       default-days: 7
+      semver-major-days: 14
+    open-pull-requests-limit: 10
     groups:
       aksel:
         patterns:
@@ -33,3 +38,17 @@ updates:
         patterns:
           - "tailwindcss"
           - "@tailwindcss/*"
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      time: "06:00"
+      timezone: Europe/Oslo
+    cooldown:
+      default-days: 7
+    open-pull-requests-limit: 5
+    groups:
+      github-actions:
+        patterns:
+          - "*"
