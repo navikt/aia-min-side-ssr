@@ -17,7 +17,7 @@ Storybook for microfrontenden ligger på [https://aia-min-side.ansatt.dev.nav.no
 
 ## Kjøre appen lokalt
 
-Bruk Node.js 22 `nvm use` (dersom du bruker nvm til versjonshåndtering av Node.js).
+Bruk Node.js 24 `nvm use` (dersom du bruker nvm til versjonshåndtering av Node.js).
 
 Siden noen av modulene hentes fra GitHubs package registry må du også gjøre litt ekstra konfigurasjon for å kjøre løsningen lokalt.
 
