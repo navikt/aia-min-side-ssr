@@ -1,53 +1,47 @@
 ---
 import {
-  ARBEIDSSOEKERPERIODER_SNAPSHOT_URL,
-  ARBEIDSSOKERREGISTERET_OPPSLAG_CLIENT_ID,
-  BEKREFTELSE_API_CLIENT_ID,
-  TILGJENGELIGE_BEKREFTELSER_URL,
+    ARBEIDSSOEKERPERIODER_SNAPSHOT_URL,
+    ARBEIDSSOKERREGISTERET_OPPSLAG_CLIENT_ID,
+    BEKREFTELSE_API_CLIENT_ID,
+    TILGJENGELIGE_BEKREFTELSER_URL,
 } from 'astro:env/server';
-import type { Language } from '@src/language/types';
+import type {Language} from '@src/language/types';
 import '@src/styles/index.css';
-import type { TilgjengeligeBekreftelser } from '@navikt/arbeidssokerregisteret-utils';
-import type { Snapshot } from '@navikt/arbeidssokerregisteret-utils/oppslag/v3';
+import type {TilgjengeligeBekreftelser} from '@navikt/arbeidssokerregisteret-utils';
+import type {Snapshot} from '@navikt/arbeidssokerregisteret-utils/oppslag/v3';
 import AiA from '@src/components/aia';
-import LoggVisning from '@src/components/logg-visning';
-import { fetchData, postTilOppslagV3API } from '@src/utils/fetch';
-import { logger } from '@src/utils/logger';
-import { getOboToken } from '@src/utils/token';
-import { getEnv } from 'astro/env/runtime';
-import { isLocal } from '../../utils/environment';
+import {fetchData, postTilOppslagV3API} from '@src/utils/fetch';
+import {logger} from '@src/utils/logger';
+import {getOboToken} from '@src/utils/token';
+import {getEnv} from 'astro/env/runtime';
+import {isLocal} from '../../utils/environment';
 
 const _language = Astro.currentLocale as Language;
 const side2Url = getEnv('SIDE_2_URL');
 let _aggregertePerioder: Snapshot, _tilgjengeligeBekreftelser: TilgjengeligeBekreftelser[];
 try {
-  const [oppslagOboToken, bekreftelseOboToken] = await Promise.all([
-    getOboToken(Astro.locals.token, ARBEIDSSOKERREGISTERET_OPPSLAG_CLIENT_ID),
-    getOboToken(Astro.locals.token, BEKREFTELSE_API_CLIENT_ID),
-  ]);
+    const [oppslagOboToken, bekreftelseOboToken] = await Promise.all([
+        getOboToken(Astro.locals.token, ARBEIDSSOKERREGISTERET_OPPSLAG_CLIENT_ID),
+        getOboToken(Astro.locals.token, BEKREFTELSE_API_CLIENT_ID),
+    ]);
 
-  [_aggregertePerioder, _tilgjengeligeBekreftelser] = await Promise.all([
-    postTilOppslagV3API(ARBEIDSSOEKERPERIODER_SNAPSHOT_URL, oppslagOboToken),
-    fetchData(TILGJENGELIGE_BEKREFTELSER_URL, bekreftelseOboToken),
-  ]);
+    [_aggregertePerioder, _tilgjengeligeBekreftelser] = await Promise.all([
+        postTilOppslagV3API(ARBEIDSSOEKERPERIODER_SNAPSHOT_URL, oppslagOboToken),
+        fetchData(TILGJENGELIGE_BEKREFTELSER_URL, bekreftelseOboToken),
+    ]);
 } catch (error) {
-  logger.error(error, `Error fetching data: ${error}`);
-  return new Response('Internal Server Error', { status: 503 });
+    logger.error(error, `Error fetching data: ${error}`);
+    return new Response('Internal Server Error', {status: 503});
 }
 ---
 
-{isLocal && <meta charset="UTF-8" />}
+{isLocal &&
+<meta charset="UTF-8"/>}
 <div class="aia-min-side-ssr">
-  <AiA
-    side2Url={side2Url!}
-    aggregertPeriode={_aggregertePerioder}
-    tilgjengeligeBekreftelser={_tilgjengeligeBekreftelser}
-    sprak={_language}
-    client:load
-  />
-  <LoggVisning
-    aggregertPeriode={_aggregertePerioder}
-    tilgjengeligeBekreftelser={_tilgjengeligeBekreftelser}
-    client:load
-  />
+    <AiA
+            side2Url={side2Url!}
+            aggregertPeriode={_aggregertePerioder}
+            tilgjengeligeBekreftelser={_tilgjengeligeBekreftelser}
+            sprak={_language}
+    />
 </div>
