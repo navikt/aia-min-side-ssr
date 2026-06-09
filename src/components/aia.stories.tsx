@@ -17,7 +17,7 @@ const meta = {
 } satisfies Meta<typeof AiA>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof AiA>;
 
 export const Arbeidssøker: Story = {
   args: {

@@ -11,7 +11,7 @@ const meta = {
 } satisfies Meta<typeof LenkeTilSide2Kort>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof LenkeTilSide2Kort>;
 
 export const AktivArbeidssokerMedTilgjengeligBekreftelse: Story = {
   args: {
