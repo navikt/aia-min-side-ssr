@@ -66,6 +66,7 @@ jobs:
         id: docker-build-push
         with:
           team: paw
+          salsa: ${{ github.ref == 'refs/heads/main' }}
 
     outputs:
       image: ${{ steps.docker-build-push.outputs.image }}
