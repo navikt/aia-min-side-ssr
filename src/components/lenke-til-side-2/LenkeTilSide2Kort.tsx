@@ -3,7 +3,6 @@ import { lagHentTekstForSprak } from '@navikt/arbeidssokerregisteret-utils';
 import type { Snapshot } from '@navikt/arbeidssokerregisteret-utils/oppslag/v3';
 import { BodyShort, Link, LinkCard } from '@navikt/ds-react';
 import type { Language } from '@src/language/types.ts';
-import { logUmamiEvent } from '../../utils/analytics.ts';
 import prettyPrintDato from '../../utils/pretty-print-dato';
 import RegistrertTittel from '../registrert-tittel/registrert-tittel';
 import { SokerJobbIkon } from './SokerJobbIkon';
@@ -14,6 +13,7 @@ interface Side2Props {
   harTilgjengeligBekreftelse: boolean;
   side2Url: string;
 }
+
 const TEKSTER = {
   nb: {
     registrert: 'Registrert dato:',
@@ -50,72 +50,59 @@ const LenkeTilSide2Kort = (props: Side2Props) => {
   const bekreftelse = aggregertPeriode.bekreftelse;
   const tekst = lagHentTekstForSprak(TEKSTER, sprak);
 
-  function hentAktivitetData() {
-    if (!harAktivArbeidssokerperiode) {
-      return 'Trykker på mikrofrontend for ikke aktiv arbeidssøker';
-    }
-    if (harTilgjengeligBekreftelse) {
-      return 'Trykker på mikrofrontend for aktiv arbeidssøker - med bekreftelse';
-    }
-    return 'Trykker på mikrofrontend for aktiv arbeidssøker';
-  }
-
-  const onClick = (aktivitet: string) => async () => {
-    await logUmamiEvent('arbeidssoekerregisteret-for-personbruker.aktivitet', {
-      aktivitet,
-    });
-  };
-
   const sprakUrlPostfix = sprak === 'nb' ? '' : `/${sprak}`;
 
   return (
     <div>
-      <LinkCard
-        className={`aiaLinkCard ${harTilgjengeligBekreftelse ? 'aiaLinkCard_bekreftelse' : ''}`.trim()}
-        arrowPosition={'center'}
-        onClick={onClick(hentAktivitetData())}
+      <Link
+        data-color={'neutral'}
+        className={'w-full aiaLinkCard__wrapper group'}
+        href={`${side2Url}${sprakUrlPostfix}`}
+        underline={false}
       >
-        <LinkCard.Icon className={'aiaLinkCard_icon_wrapper'}>
-          <div className={'aiaLinkCard_ikon'}>
-            <SokerJobbIkon />
-          </div>
-        </LinkCard.Icon>
-        <LinkCard.Title as={'h3'}>
-          <LinkCard.Anchor href={`${side2Url}${sprakUrlPostfix}`}>
+        <LinkCard
+          className={`w-full aiaLinkCard ${harTilgjengeligBekreftelse ? 'aiaLinkCard_bekreftelse' : ''}`.trim()}
+          arrowPosition={'center'}
+        >
+          <LinkCard.Icon className={'aiaLinkCard_icon_wrapper'}>
+            <div className={'aiaLinkCard_ikon'}>
+              <SokerJobbIkon />
+            </div>
+          </LinkCard.Icon>
+          <LinkCard.Title as={'h3'} className={'underline decoration-1 group-hover:decoration-2'}>
             <RegistrertTittel
               harAktivArbeidssokerperiode={harAktivArbeidssokerperiode}
               opplysningerOmArbeidssoker={aggregertPeriode?.opplysning}
               sprak={sprak}
             />
-          </LinkCard.Anchor>
-        </LinkCard.Title>
-        <LinkCard.Description>
-          {harAktivArbeidssokerperiode ? (
-            <>
-              <BodyShort size={'small'} spacing>
-                {tekst('registrert')} {prettyPrintDato(aggregertPeriode.startet.tidspunkt, sprak)}
-                {bekreftelse &&
-                  `, ${tekst('sistBekreftet')}: ${prettyPrintDato(bekreftelse.svar.sendtInnAv.tidspunkt, sprak)}`}
-              </BodyShort>
-              {tekst('seOgEndre')}
-            </>
-          ) : (
-            <div className={'mt-2'}>
-              <BodyShort>
-                {`${tekst('duVarRegistrert')} ${prettyPrintDato(aggregertPeriode.startet.tidspunkt, sprak)} ${tekst('til')} 
+          </LinkCard.Title>
+          <LinkCard.Description className={'aiaLinkCard__description'}>
+            {harAktivArbeidssokerperiode ? (
+              <>
+                <BodyShort size={'small'} spacing>
+                  {tekst('registrert')} {prettyPrintDato(aggregertPeriode.startet.tidspunkt, sprak)}
+                  {bekreftelse &&
+                    `, ${tekst('sistBekreftet')}: ${prettyPrintDato(bekreftelse.svar.sendtInnAv.tidspunkt, sprak)}`}
+                </BodyShort>
+                {tekst('seOgEndre')}
+              </>
+            ) : (
+              <div className={'mt-2'}>
+                <BodyShort>
+                  {`${tekst('duVarRegistrert')} ${prettyPrintDato(aggregertPeriode.startet.tidspunkt, sprak)} ${tekst('til')} 
                 ${prettyPrintDato(aggregertPeriode.avsluttet?.tidspunkt || '', sprak)}`}
-              </BodyShort>
-              {tekst('seTidligere')}
-            </div>
-          )}
-        </LinkCard.Description>
-      </LinkCard>
+                </BodyShort>
+                {tekst('seTidligere')}
+              </div>
+            )}
+          </LinkCard.Description>
+        </LinkCard>
+      </Link>
       {harTilgjengeligBekreftelse && harAktivArbeidssokerperiode && (
         <Link
           data-color='neutral'
           className={'aiaLinkCardBekreftelse'}
           href={`${side2Url}${sprakUrlPostfix}/bekreftelse`}
-          onClick={onClick('Trykker på bekreftelse lenke fra mikrofrontend')}
         >
           <ExclamationmarkTriangleFillIcon
             title='a11y-title'

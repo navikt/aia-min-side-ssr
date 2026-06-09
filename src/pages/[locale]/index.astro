@@ -10,7 +10,6 @@ import '@src/styles/index.css';
 import type { TilgjengeligeBekreftelser } from '@navikt/arbeidssokerregisteret-utils';
 import type { Snapshot } from '@navikt/arbeidssokerregisteret-utils/oppslag/v3';
 import AiA from '@src/components/aia';
-import LoggVisning from '@src/components/logg-visning';
 import { fetchData, postTilOppslagV3API } from '@src/utils/fetch';
 import { logger } from '@src/utils/logger';
 import { getOboToken } from '@src/utils/token';
@@ -36,18 +35,13 @@ try {
 }
 ---
 
-{isLocal && <meta charset="UTF-8" />}
+{isLocal &&
+<meta charset="UTF-8"/>}
 <div class="aia-min-side-ssr">
-  <AiA
-    side2Url={side2Url!}
-    aggregertPeriode={_aggregertePerioder}
-    tilgjengeligeBekreftelser={_tilgjengeligeBekreftelser}
-    sprak={_language}
-    client:load
-  />
-  <LoggVisning
-    aggregertPeriode={_aggregertePerioder}
-    tilgjengeligeBekreftelser={_tilgjengeligeBekreftelser}
-    client:load
-  />
+    <AiA
+            side2Url={side2Url!}
+            aggregertPeriode={_aggregertePerioder}
+            tilgjengeligeBekreftelser={_tilgjengeligeBekreftelser}
+            sprak={_language}
+    />
 </div>
