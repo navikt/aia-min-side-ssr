@@ -54,7 +54,12 @@ const LenkeTilSide2Kort = (props: Side2Props) => {
 
   return (
     <div>
-      <Link data-color={'neutral'} className={'w-full'} href={`${side2Url}${sprakUrlPostfix}`}>
+      <Link
+        data-color={'neutral'}
+        className={'w-full aiaLinkCard__wrapper group'}
+        href={`${side2Url}${sprakUrlPostfix}`}
+        underline={false}
+      >
         <LinkCard
           className={`w-full aiaLinkCard ${harTilgjengeligBekreftelse ? 'aiaLinkCard_bekreftelse' : ''}`.trim()}
           arrowPosition={'center'}
@@ -64,16 +69,14 @@ const LenkeTilSide2Kort = (props: Side2Props) => {
               <SokerJobbIkon />
             </div>
           </LinkCard.Icon>
-          <LinkCard.Title as={'h3'}>
-            {/*<LinkCard.Anchor>*/}
+          <LinkCard.Title as={'h3'} className={'underline decoration-1 group-hover:decoration-2'}>
             <RegistrertTittel
               harAktivArbeidssokerperiode={harAktivArbeidssokerperiode}
               opplysningerOmArbeidssoker={aggregertPeriode?.opplysning}
               sprak={sprak}
             />
-            {/*</LinkCard.Anchor>*/}
           </LinkCard.Title>
-          <LinkCard.Description>
+          <LinkCard.Description className={'aiaLinkCard__description'}>
             {harAktivArbeidssokerperiode ? (
               <>
                 <BodyShort size={'small'} spacing>

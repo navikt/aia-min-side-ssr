@@ -12,6 +12,14 @@
   border-bottom-right-radius: 0;
 }
 
+.aiaLinkCard__description {
+  text-decoration: none;
+}
+
+.aiaLinkCard__wrapper:hover {
+  text-decoration: none;
+}
+
 .aiaLinkCard:hover {
   .aiaLinkCard_ikon {
     scale: 1.05;
