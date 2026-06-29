@@ -51,7 +51,7 @@
     "hono": "4.12.25",
     "husky": "9.1.7",
     "jsdom": "29.1.1",
-    "knip": "6.16.1",
+    "knip": "6.17.1",
     "lint-staged": "17.0.7",
     "playwright": "1.60.0",
     "postcss": "8.5.15",
