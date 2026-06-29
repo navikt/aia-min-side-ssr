@@ -30,9 +30,7 @@ export default defineConfig({
       hooks: {
         'astro:build:setup': ({ vite, target }) => {
           if (target === 'client') {
-            vite.build ??= {};
-            vite.build.rollupOptions ??= {};
-            vite.build.rollupOptions.external = [
+            vite.build.rolldownOptions.external = [
               'react',
               'react/jsx-runtime',
               'react-dom',
