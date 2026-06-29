@@ -53,7 +53,7 @@
     "jsdom": "29.1.1",
     "knip": "6.16.1",
     "lint-staged": "17.0.7",
-    "playwright": "1.60.0",
+    "playwright": "1.61.0",
     "postcss": "8.5.15",
     "postcss-prefix-selector": "2.1.1",
     "storybook": "10.4.4",
