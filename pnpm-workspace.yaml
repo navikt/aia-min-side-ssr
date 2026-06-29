@@ -3,5 +3,5 @@ allowBuilds:
   sharp: true
 
 overrides:
-  undici: ">=7.28.0"
+  undici: ">=7.28.0 <8.0.0"
   yaml: ">=2.8.3"
