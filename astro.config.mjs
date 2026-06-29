@@ -28,14 +28,16 @@ export default defineConfig({
     {
       name: 'importmap-externals',
       hooks: {
-        'astro:build:setup': ({ vite }) => {
-          vite.environments.client.build.rollupOptions.external = [
-            'react',
-            'react/jsx-runtime',
-            'react-dom',
-            'react-dom/client',
-            'scheduler',
-          ];
+        'astro:build:setup': ({ vite, target }) => {
+          if (target === 'client') {
+            vite.build.rolldownOptions.external = [
+              'react',
+              'react/jsx-runtime',
+              'react-dom',
+              'react-dom/client',
+              'scheduler',
+            ];
+          }
         },
       },
     },
