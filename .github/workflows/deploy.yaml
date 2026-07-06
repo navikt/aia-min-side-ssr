@@ -55,14 +55,14 @@ jobs:
         run: "pnpm run build-storybook"
 
       - name: "Upload to cdn"
-        uses: nais/deploy/actions/cdn-upload/v2@a7f8690f9b367fcbf5348a0a1e21d44f1aae50eb # v2
+        uses: nais/deploy/actions/cdn-upload/v2@2d18f050f07b6a007864c6a57070ed915d571beb # v2
         with:
           team: paw
           source: ./dist/client/_astro
           destination: "aia-min-side-ssr"
 
       - name: "Build and push"
-        uses: nais/docker-build-push@05dbb6091b30bd84279c6d64a45ef8782fd410a5 # v0
+        uses: nais/docker-build-push@31c3a7321909bcb20799fdf46153fec721fd9512 # v0
         id: docker-build-push
         with:
           team: paw
@@ -116,7 +116,7 @@ jobs:
     steps:
       - uses: "actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0" # v7.0.0
       - name: "Deploy to dev"
-        uses: "nais/deploy/actions/deploy@a7f8690f9b367fcbf5348a0a1e21d44f1aae50eb" # v2
+        uses: "nais/deploy/actions/deploy@2d18f050f07b6a007864c6a57070ed915d571beb" # v2
         env:
           CLUSTER: dev-gcp
           RESOURCE: nais/dev-gcp/nais.yaml
@@ -134,7 +134,7 @@ jobs:
    steps:
      - uses: "actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0" # v7.0.0
      - name: "Deploy to prod"
-       uses: "nais/deploy/actions/deploy@a7f8690f9b367fcbf5348a0a1e21d44f1aae50eb" # v2
+       uses: "nais/deploy/actions/deploy@2d18f050f07b6a007864c6a57070ed915d571beb" # v2
        env:
          CLUSTER: prod-gcp
          RESOURCE: nais/prod-gcp/nais.yaml
