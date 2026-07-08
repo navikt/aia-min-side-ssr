@@ -2,7 +2,7 @@
   "name": "aia-min-side-ssr",
   "type": "module",
   "version": "0.0.1",
-  "packageManager": "pnpm@11.8.0",
+  "packageManager": "pnpm@11.9.0",
   "scripts": {
     "dev": "SIDE_2_URL=https://www.ansatt.dev.nav.no/arbeidssoekerregisteret astro dev",
     "start": "astro dev",
@@ -69,6 +69,6 @@
     ]
   },
   "engines": {
-    "node": ">=24.17.0"
+    "node": ">=24.18.0"
   }
 }
