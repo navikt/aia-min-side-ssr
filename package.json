@@ -34,7 +34,7 @@
     "react-dom": "19.2.7"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.5.1",
+    "@biomejs/biome": "2.5.7",
     "@chromatic-com/storybook": "5.2.1",
     "@hono/node-server": "2.1.0",
     "@navikt/ds-tailwind": "8.16.1",
