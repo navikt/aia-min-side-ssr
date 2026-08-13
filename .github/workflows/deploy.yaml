@@ -25,12 +25,12 @@ jobs:
       - uses: "pnpm/action-setup@0ebf47130e4866e96fce0953f49152a61190b271" # v6.0.9
       - uses: "actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e" # v6.4.0
         with:
-          node-version: 24.18.0
+          node-version: 24.19.0
           registry-url: "https://npm.pkg.github.com"
           cache: "pnpm"
 
       - name: "Install dependencies"
-        run: "pnpm install --frozen-lockfile --ignore-scripts"
+        run: "pnpm ci"
         env:
           NODE_AUTH_TOKEN: ${{ secrets.READER_TOKEN }}
 
@@ -38,21 +38,21 @@ jobs:
         run: "pnpm exec playwright install chromium --with-deps"
 
       - name: "Run Biome lint"
-        run: "pnpm run lint:ci"
+        run: "pnpm lint:ci"
 
       - name: "Run tests"
-        run: "pnpm run test:ci"
+        run: "pnpm test:ci"
 
       - name: Knip
         run: pnpm dlx knip --no-exit-code --reporter=markdown >> "$GITHUB_STEP_SUMMARY"
 
       - name: "Build application"
-        run: "pnpm run build"
+        run: "pnpm build"
         env:
           ASTRO_KEY: ${{ secrets.ASTRO_KEY }}
 
       - name: "Build storybook"
-        run: "pnpm run build-storybook"
+        run: "pnpm build-storybook"
 
       - name: "Upload to cdn"
         uses: nais/deploy/actions/cdn-upload/v2@2d18f050f07b6a007864c6a57070ed915d571beb # v2
