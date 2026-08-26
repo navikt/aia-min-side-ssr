@@ -30,8 +30,8 @@
     "@navikt/oasis": "4.1.4",
     "astro": "7.2.3",
     "pino": "10.3.1",
-    "react": "19.2.7",
-    "react-dom": "19.2.7"
+    "react": "19.2.8",
+    "react-dom": "19.2.8"
   },
   "devDependencies": {
     "@biomejs/biome": "2.5.7",
@@ -45,8 +45,8 @@
     "@storybook/react-vite": "10.5.8",
     "@tailwindcss/vite": "4.3.3",
     "@types/node": "26.2.0",
-    "@types/react": "19.2.17",
-    "@types/react-dom": "19.2.3",
+    "@types/react": "19.2.18",
+    "@types/react-dom": "19.2.4",
     "@vitest/browser": "4.1.10",
     "hono": "4.13.3",
     "husky": "9.1.7",
