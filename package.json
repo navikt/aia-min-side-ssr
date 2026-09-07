@@ -47,7 +47,7 @@
     "@types/node": "26.2.0",
     "@types/react": "19.2.18",
     "@types/react-dom": "19.2.4",
-    "@vitest/browser": "4.1.10",
+    "@vitest/browser": "4.1.11",
     "hono": "4.13.3",
     "husky": "9.1.7",
     "jsdom": "30.0.1",
@@ -60,7 +60,7 @@
     "tailwindcss": "4.3.3",
     "tsx": "4.23.12",
     "typescript": "6.0.3",
-    "vitest": "4.1.10"
+    "vitest": "4.1.11"
   },
   "lint-staged": {
     "*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc}": [
