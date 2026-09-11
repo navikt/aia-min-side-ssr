@@ -46,7 +46,7 @@
     "@tailwindcss/vite": "4.3.3",
     "@types/node": "26.4.1",
     "@types/react": "19.2.18",
-    "@types/react-dom": "19.2.4",
+    "@types/react-dom": "19.2.7",
     "@vitest/browser": "4.1.11",
     "hono": "4.13.5",
     "husky": "9.1.7",
