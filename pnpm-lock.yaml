@@ -113,8 +113,8 @@ importers:
         specifier: 8.5.26
         version: 8.5.26
       postcss-prefix-selector:
-        specifier: 2.1.1
-        version: 2.1.1(postcss@8.5.26)
+        specifier: 2.2.0
+        version: 2.2.0(postcss@8.5.26)
       storybook:
         specifier: 10.5.10
         version: 10.5.10(@types/react@19.2.18)(prettier@3.9.6)(react@19.2.8)
@@ -3151,8 +3151,8 @@ packages:
     resolution: {integrity: sha512-LKWqWJRhstyYo9pGvgor/ivk2w94eSjE3RGVuzLGlr3NmD8bf7RcYGze1mNdEHRP6TRP6rMuDHk5t44hnTRyow==}
     engines: {node: '>=14.19.0'}
 
-  postcss-prefix-selector@2.1.1:
-    resolution: {integrity: sha512-ZBgf427Et6+XnrnJ9VXtJEKCjJwTvn2wn/qMg+wvvlRhIeFIAxdbrlZZ0CSsWYMJfcyPLBh8ogj5O1kb/Mcx3g==}
+  postcss-prefix-selector@2.2.0:
+    resolution: {integrity: sha512-pGKK57v2SXKo5CD41tAnFh82Y+cxvS3lgTtt7e2YatH1nS3ADTI+U3Lk/NfG+xBz9fyU0KAYoBs1YVwqmGZ9nA==}
     peerDependencies:
       postcss: ^8.0.0
 
@@ -6714,7 +6714,7 @@ snapshots:
 
   pngjs@7.0.0: {}
 
-  postcss-prefix-selector@2.1.1(postcss@8.5.26):
+  postcss-prefix-selector@2.2.0(postcss@8.5.26):
     dependencies:
       postcss: 8.5.26
 
