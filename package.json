@@ -55,7 +55,7 @@
     "lint-staged": "17.5.0",
     "playwright": "1.63.0",
     "postcss": "8.5.28",
-    "postcss-prefix-selector": "2.1.1",
+    "postcss-prefix-selector": "2.2.1",
     "storybook": "10.6.0",
     "tailwindcss": "4.3.3",
     "tsx": "4.23.13",
