@@ -48,7 +48,7 @@
     "@types/react": "19.2.18",
     "@types/react-dom": "19.2.7",
     "@vitest/browser": "4.1.11",
-    "hono": "4.13.5",
+    "hono": "4.13.7",
     "husky": "9.1.7",
     "jsdom": "30.0.1",
     "knip": "6.34.0",
