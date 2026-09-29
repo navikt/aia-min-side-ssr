@@ -57,7 +57,7 @@ importers:
         version: 5.3.1(storybook@10.6.0(@types/react@19.3.0)(prettier@3.9.6)(react@19.3.0))
       '@hono/node-server':
         specifier: 2.1.1
-        version: 2.1.1(hono@4.13.7)
+        version: 2.1.1(hono@4.13.8)
       '@navikt/ds-tailwind':
         specifier: 8.16.2
         version: 8.16.2
@@ -92,8 +92,8 @@ importers:
         specifier: 5.0.1
         version: 5.0.1(vite@8.3.0(@types/node@26.5.1)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.23.13)(yaml@2.9.0))(vitest@5.0.1)
       hono:
-        specifier: 4.13.7
-        version: 4.13.7
+        specifier: 4.13.8
+        version: 4.13.8
       husky:
         specifier: 9.1.7
         version: 9.1.7
@@ -2649,8 +2649,8 @@ packages:
   hast-util-whitespace@3.0.0:
     resolution: {integrity: sha512-88JUN06ipLwsnv+dVn+OIYOvAuvBMy/Qoi6O7mQHxdPXpjy+Cd6xRkWwux7DKO+4sYILtLBRIKgsdpS2gQc7qw==}
 
-  hono@4.13.7:
-    resolution: {integrity: sha512-c8/gF9ac8Y78/agExVocyLevgR+JlpNB444Py0FSX8pJoPdYUfUzRcXtYEYGwt6l19qIlVZPN5Mfsw9jFShmQQ==}
+  hono@4.13.8:
+    resolution: {integrity: sha512-/Gng7NfoykZl2pjukW5Z6+8Yxm3BPRf86GTbQnt0SbySkvax4fyL4H3HhY1cCpBGmiW9XDRFzRV+CXK2W8QudQ==}
     engines: {node: '>=16.9.0'}
 
   html-encoding-sniffer@6.0.0:
@@ -4603,9 +4603,9 @@ snapshots:
 
   '@floating-ui/utils@0.2.12': {}
 
-  '@hono/node-server@2.1.1(hono@4.13.7)':
+  '@hono/node-server@2.1.1(hono@4.13.8)':
     dependencies:
-      hono: 4.13.7
+      hono: 4.13.8
 
   '@img/colour@1.1.0':
     optional: true
@@ -6199,7 +6199,7 @@ snapshots:
     dependencies:
       '@types/hast': 3.0.5
 
-  hono@4.13.7: {}
+  hono@4.13.8: {}
 
   html-encoding-sniffer@6.0.0:
     dependencies:
