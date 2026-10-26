@@ -37,7 +37,7 @@
   "devDependencies": {
     "@biomejs/biome": "2.5.15",
     "@chromatic-com/storybook": "5.4.0",
-    "@hono/node-server": "2.1.4",
+    "@hono/node-server": "2.1.5",
     "@navikt/ds-tailwind": "8.19.2",
     "@storybook/addon-a11y": "10.6.3",
     "@storybook/addon-docs": "10.6.3",
