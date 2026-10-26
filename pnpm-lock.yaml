@@ -110,11 +110,11 @@ importers:
         specifier: 1.64.1
         version: 1.64.1
       postcss:
-        specifier: 8.5.29
-        version: 8.5.29
+        specifier: 8.5.31
+        version: 8.5.31
       postcss-prefix-selector:
         specifier: 2.2.1
-        version: 2.2.1(postcss@8.5.29)
+        version: 2.2.1(postcss@8.5.31)
       storybook:
         specifier: 10.6.3
         version: 10.6.3(@types/react@19.3.0)(prettier@3.9.6)(react@19.3.1)
@@ -3151,6 +3151,10 @@ packages:
 
   postcss@8.5.29:
     resolution: {integrity: sha512-49cGhUbXj8Qenv0iTMxA1cFBzxXoctpC9Ujd77t1WcbJIr6nF/eI7g/8MgxrYldFRuAXvja7xQRwavoW7kgrxQ==}
+    engines: {node: ^10 || ^12 || >=14}
+
+  postcss@8.5.31:
+    resolution: {integrity: sha512-YUbWYCgErwnMAVkjUnYa+KlMBzGpHwiIt/DE7f0G33AuX2LH9UcTk6KgWxd3zRU+pN3u/C+Xl3EnMLM4Hea7Sg==}
     engines: {node: ^10 || ^12 || >=14}
 
   prettier@3.9.6:
@@ -6675,11 +6679,17 @@ snapshots:
 
   pngjs@7.0.0: {}
 
-  postcss-prefix-selector@2.2.1(postcss@8.5.29):
+  postcss-prefix-selector@2.2.1(postcss@8.5.31):
     dependencies:
-      postcss: 8.5.29
+      postcss: 8.5.31
 
   postcss@8.5.29:
+    dependencies:
+      nanoid: 3.3.20
+      picocolors: 1.1.1
+      source-map-js: 1.2.2
+
+  postcss@8.5.31:
     dependencies:
       nanoid: 3.3.20
       picocolors: 1.1.1
