@@ -43,6 +43,9 @@ jobs:
       - name: "Run tests"
         run: "pnpm test:ci"
 
+      - name: "Run Storybook tests"
+        run: "pnpm test:storybook"
+
       - name: Knip
         run: pnpm dlx knip --no-exit-code --reporter=markdown >> "$GITHUB_STEP_SUMMARY"
 

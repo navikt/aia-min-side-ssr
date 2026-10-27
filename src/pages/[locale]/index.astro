@@ -18,7 +18,7 @@ import { isLocal } from '../../utils/environment';
 
 const _language = Astro.currentLocale as Language;
 const side2Url = getEnv('SIDE_2_URL');
-let _aggregertePerioder: Snapshot, _tilgjengeligeBekreftelser: TilgjengeligeBekreftelser[];
+let _aggregertePerioder: Snapshot, _tilgjengeligeBekreftelser: TilgjengeligeBekreftelser;
 try {
   const [oppslagOboToken, bekreftelseOboToken] = await Promise.all([
     getOboToken(Astro.locals.token, ARBEIDSSOKERREGISTERET_OPPSLAG_CLIENT_ID),

@@ -11,13 +11,16 @@ const preview: Preview = {
     },
 
     a11y: {
-      // 'todo' - show a11y violations in the test UI only
-      // 'error' - fail CI on a11y violations
-      // 'off' - skip a11y checks entirely
-      test: 'todo',
+      test: 'error',
     },
   },
-  decorators: [(Story) => <Story />],
+  decorators: [
+    (Story, context) => (
+      <div className='aia-min-side-ssr' lang={context.args.sprak ?? 'nb'}>
+        <Story />
+      </div>
+    ),
+  ],
 };
 
 export default preview;

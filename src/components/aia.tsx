@@ -6,7 +6,7 @@ import LenkeTilSide2Kort from './lenke-til-side-2/LenkeTilSide2Kort.tsx';
 interface AiaProps {
   aggregertPeriode: Snapshot | null;
   sprak: Language;
-  tilgjengeligeBekreftelser?: TilgjengeligeBekreftelser[];
+  tilgjengeligeBekreftelser?: TilgjengeligeBekreftelser;
   side2Url: string;
 }
 
