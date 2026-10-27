@@ -9,7 +9,7 @@ Vi viser innhold fra Arbeidssøkerregisteret
 - Registrert dato
 - Siste bekreftelse
 - Lenke til se og endre opplysninger
-- Lenke til bekreftelse, dersom du har en uforstående bekreftelse
+- Lenke til bekreftelse, dersom du har en ventende bekreftelse
 
 ## Storybook
 Storybook for microfrontenden ligger på [https://aia-min-side.ansatt.dev.nav.no](https://aia-min-side.ansatt.dev.nav.no) (krever tilgang til ansatt.dev.nav.no ingressen)
