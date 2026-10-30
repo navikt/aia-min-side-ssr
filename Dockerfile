@@ -1,4 +1,4 @@
-FROM europe-north1-docker.pkg.dev/cgr-nav/pull-through/nav.no/node:24 as runtime
+FROM europe-north1-docker.pkg.dev/cgr-nav/pull-through/nav.no/node:26 as runtime
 
 WORKDIR /usr/src/app
 
