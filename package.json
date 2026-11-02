@@ -22,15 +22,15 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
-    "@astrojs/check": "0.9.10",
-    "@astrojs/node": "11.1.8",
-    "@astrojs/react": "7.1.0",
+    "@astrojs/check": "0.9.12",
+    "@astrojs/node": "11.1.9",
+    "@astrojs/react": "7.1.1",
     "@navikt/aksel-icons": "8.19.2",
     "@navikt/arbeidssokerregisteret-utils": "2.1.0",
     "@navikt/ds-css": "8.19.2",
     "@navikt/ds-react": "8.19.2",
     "@navikt/oasis": "4.2.2",
-    "astro": "7.4.0",
+    "astro": "7.4.2",
     "pino": "10.4.0",
     "react": "19.3.1",
     "react-dom": "19.3.1"
