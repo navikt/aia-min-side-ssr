@@ -58,7 +58,7 @@ jobs:
         run: "pnpm build-storybook"
 
       - name: "Upload to cdn"
-        uses: nais/deploy/actions/cdn-upload/v2@f93637de5533a1bb573f940ceb7527a5b3b0dea0 # v2
+        uses: nais/deploy/actions/cdn-upload/v2@3944168fd20b7eea3818e97de3810f74b54c78ff # v2
         with:
           team: paw
           source: ./dist/client/_astro
@@ -119,7 +119,7 @@ jobs:
     steps:
       - uses: "actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1" # v7.0.1
       - name: "Deploy to dev"
-        uses: "nais/deploy/actions/deploy@f93637de5533a1bb573f940ceb7527a5b3b0dea0" # v2
+        uses: "nais/deploy/actions/deploy@3944168fd20b7eea3818e97de3810f74b54c78ff" # v2
         env:
           CLUSTER: dev-gcp
           RESOURCE: nais/dev-gcp/nais.yaml
@@ -137,7 +137,7 @@ jobs:
    steps:
      - uses: "actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1" # v7.0.1
      - name: "Deploy to prod"
-       uses: "nais/deploy/actions/deploy@f93637de5533a1bb573f940ceb7527a5b3b0dea0" # v2
+       uses: "nais/deploy/actions/deploy@3944168fd20b7eea3818e97de3810f74b54c78ff" # v2
        env:
          CLUSTER: prod-gcp
          RESOURCE: nais/prod-gcp/nais.yaml
