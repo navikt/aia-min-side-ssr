@@ -3,8 +3,15 @@ import { useId } from 'react';
 export const SokerJobbIkon = () => {
   const id = useId();
   return (
-    <svg width='48' height='48' viewBox='0 0 48 48' fill='none' xmlns='http://www.w3.org/2000/svg'>
-      <title>Jobbsøker ikon</title>
+    <svg
+      width='48'
+      height='48'
+      viewBox='0 0 48 48'
+      fill='none'
+      xmlns='http://www.w3.org/2000/svg'
+      aria-hidden='true'
+      focusable='false'
+    >
       <g clipPath={`url(${id})`}>
         <path
           d='M38 24C38 16.268 31.732 10 24 10C16.268 10 10 16.268 10 24C10 31.732 16.268 38 24 38'

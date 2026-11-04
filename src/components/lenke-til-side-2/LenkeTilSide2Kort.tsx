@@ -105,7 +105,8 @@ const LenkeTilSide2Kort = (props: Side2Props) => {
           href={`${side2Url}${sprakUrlPostfix}/bekreftelse`}
         >
           <ExclamationmarkTriangleFillIcon
-            title='a11y-title'
+            aria-hidden='true'
+            focusable='false'
             fontSize='1.5rem'
             width={48}
             style={{ color: 'var(--ax-bg-warning-strong)' }}

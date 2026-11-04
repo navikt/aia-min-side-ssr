@@ -5,6 +5,8 @@
 # ⚠️  grants access to Docker socket — effectively root on the host
 # Suggested by: (root)
 # allow_docker = true
+# Suggested by: (root)
+allow_localhost_any = true
 
 [propose.allow]
 localhost = [6006]

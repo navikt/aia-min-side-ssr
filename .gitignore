@@ -33,3 +33,6 @@ jspm_packages/
 todos.txt
 *storybook.log
 storybook-static
+
+# Vitest browser failure screenshots and attachments
+.vitest/

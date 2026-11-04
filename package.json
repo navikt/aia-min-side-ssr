@@ -15,10 +15,12 @@
     "lint:ci": "biome ci ./src",
     "test": "pnpm run lint && vitest dev --project=unit",
     "test:ci": "vitest run --project=unit",
-    "test:storybook": "vitest run --project=storybook",
+    "test:storybook": "vitest run --project=storybook --project=storybook-forced-colors --project=storybook-reduced-motion",
+    "test:uu:ssr": "vitest run --project=ssr",
     "prepare": "husky",
     "refresh": "rm -rf node_modules && rm pnpm-lock.yaml && pnpm i --ignore-scripts",
     "storybook": "storybook dev -p 6006",
+    "typecheck": "tsc --noEmit",
     "build-storybook": "storybook build"
   },
   "dependencies": {
