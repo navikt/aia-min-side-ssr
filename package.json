@@ -28,7 +28,7 @@
     "@astrojs/node": "11.1.9",
     "@astrojs/react": "7.1.2",
     "@navikt/aksel-icons": "8.21.0",
-    "@navikt/arbeidssokerregisteret-utils": "2.1.0",
+    "@navikt/arbeidssokerregisteret-utils": "3.0.1",
     "@navikt/ds-css": "8.21.0",
     "@navikt/ds-react": "8.21.0",
     "@navikt/oasis": "4.2.2",
