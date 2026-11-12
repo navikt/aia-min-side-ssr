@@ -31,15 +31,15 @@ Pakker hentes fra GitHub Package Registry og krever autentisering:
 
 | Kommando | Beskrivelse |
 |---|---|
-| `pnpm run mock` | Start Hono-basert mock-server (port 3000) — **må kjøre før `dev`** |
-| `pnpm run dev` | Start Astro dev-server (port 4321) |
-| `pnpm run test:ci` | Kjør Vitest-tester (brukes i CI) |
-| `pnpm run lint:ci` | Kjør Biome lint (brukes i CI) |
-| `pnpm run lint` | Kontroller formatering, lint og importorganisering med Biome (uten autofix) |
-| `pnpm run build` | TypeCheck + produksjonsbygg |
-| `pnpm run test:storybook` | Kjør Storybook-tester i Chromium, inkludert tilgjengelighetstester (brukes i CI) |
-| `pnpm run storybook` | Start Storybook (port 6006) |
-| `pnpm run build-storybook` | Bygg Storybook for deploy |
+| `pnpm mock` | Start Hono-basert mock-server (port 3000) — **må kjøre før `dev`** |
+| `pnpm dev` | Start Astro dev-server (port 4321) |
+| `pnpm test:ci` | Kjør Vitest-tester (brukes i CI) |
+| `pnpm lint:ci` | Kjør Biome lint (brukes i CI) |
+| `pnpm lint` | Kontroller formatering, lint og importorganisering med Biome (uten autofix) |
+| `pnpm build` | TypeCheck + produksjonsbygg |
+| `pnpm test:storybook` | Kjør Storybook-tester i Chromium, inkludert tilgjengelighetstester (brukes i CI) |
+| `pnpm storybook` | Start Storybook (port 6006) |
+| `pnpm build-storybook` | Bygg Storybook for deploy |
 
 Node.js-versjon styres av `.nvmrc`. Bruk `nvm use` før du starter.
 
