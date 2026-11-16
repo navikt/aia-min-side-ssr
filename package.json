@@ -25,14 +25,14 @@
   },
   "dependencies": {
     "@astrojs/check": "0.9.12",
-    "@astrojs/node": "11.1.9",
-    "@astrojs/react": "7.1.2",
+    "@astrojs/node": "11.1.11",
+    "@astrojs/react": "7.1.4",
     "@navikt/aksel-icons": "8.21.0",
     "@navikt/arbeidssokerregisteret-utils": "3.0.1",
     "@navikt/ds-css": "8.21.0",
     "@navikt/ds-react": "8.21.0",
     "@navikt/oasis": "4.2.2",
-    "astro": "7.4.4",
+    "astro": "7.4.7",
     "pino": "10.4.0",
     "react": "19.3.1",
     "react-dom": "19.3.1"
