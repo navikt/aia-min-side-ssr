@@ -96,16 +96,16 @@ tms-min-side → TokenX-token i brukerkontekst → aia-min-side-ssr (Astro SSR)
 
 ### CSS-scoping
 
-All CSS **må** være scoped til `.aia-min-side-ssr`-klassen eller avgrenset lokalt, for eksempel med CSS Modules. PostCSS-prefixeren i `astro.config.mjs` prefikser CSS, men unntar `module.css`. Wrapperen alene hindrer ikke CSS-lekkasje: CSS-selektorene må også være avgrenset. Bruk Tailwind-klasser og inline-stiler innenfor wrapperen.
+All CSS **må** være scoped til `.aia-min-side-ssr`-klassen eller avgrenset lokalt, for eksempel med CSS Modules. PostCSS-prefixeren i `astro.config.mjs` prefikser CSS, men unntar `module.css`. Wrapperen alene hindrer ikke CSS-lekkasje: CSS-selektorene må også være avgrenset. Bruk Aksel-primitiver (`Box`, `VStack`, `HStack`) og egne klasser i `src/styles/` innenfor wrapperen.
 
 ```tsx
 // ✅ Riktig — inne i .aia-min-side-ssr-wrapper
 <div className="aia-min-side-ssr">
-  <div className="mt-2">...</div>
+  <Box marginBlock="space-8 space-0">...</Box>
 </div>
 
 // ❌ Feil — stiler kan lekke ut til resten av min-side
-<div className="mt-2">...</div>
+<Box marginBlock="space-8 space-0">...</Box>
 ```
 
 I React (`.tsx`) bruker du `className`. I Astro-sider (`.astro`) bruker du `class`. Storybook legger til wrapperen gjennom dekoratoren i `.storybook/preview.tsx`.

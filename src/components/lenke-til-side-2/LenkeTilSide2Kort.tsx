@@ -1,7 +1,7 @@
 import { ExclamationmarkTriangleFillIcon } from '@navikt/aksel-icons';
 import { lagHentTekstForSprak } from '@navikt/arbeidssokerregisteret-utils';
 import type { Snapshot } from '@navikt/arbeidssokerregisteret-utils/oppslag/v3';
-import { BodyShort, Link, LinkCard } from '@navikt/ds-react';
+import { BodyShort, Box, Link, LinkCard } from '@navikt/ds-react';
 import type { Language } from '@src/language/types.ts';
 import prettyPrintDato from '../../utils/pretty-print-dato';
 import RegistrertTittel from '../registrert-tittel/registrert-tittel';
@@ -56,12 +56,12 @@ const LenkeTilSide2Kort = (props: Side2Props) => {
     <div>
       <Link
         data-color={'neutral'}
-        className={'w-full aiaLinkCard__wrapper group'}
+        className={'aiaLinkCard__wrapper'}
         href={`${side2Url}${sprakUrlPostfix}`}
         underline={false}
       >
         <LinkCard
-          className={`w-full aiaLinkCard ${harTilgjengeligBekreftelse ? 'aiaLinkCard_bekreftelse' : ''}`.trim()}
+          className={`aiaLinkCard ${harTilgjengeligBekreftelse ? 'aiaLinkCard_bekreftelse' : ''}`.trim()}
           arrowPosition={'center'}
         >
           <LinkCard.Icon className={'aiaLinkCard_icon_wrapper'}>
@@ -69,7 +69,7 @@ const LenkeTilSide2Kort = (props: Side2Props) => {
               <SokerJobbIkon />
             </div>
           </LinkCard.Icon>
-          <LinkCard.Title as={'h3'} className={'underline decoration-1 group-hover:decoration-2'}>
+          <LinkCard.Title as={'h3'} className={'aiaLinkCard__title'}>
             <RegistrertTittel
               harAktivArbeidssokerperiode={harAktivArbeidssokerperiode}
               opplysningerOmArbeidssoker={aggregertPeriode?.opplysning}
@@ -87,13 +87,13 @@ const LenkeTilSide2Kort = (props: Side2Props) => {
                 {tekst('seOgEndre')}
               </>
             ) : (
-              <div className={'mt-2'}>
+              <Box marginBlock={'space-8 space-0'}>
                 <BodyShort>
                   {`${tekst('duVarRegistrert')} ${prettyPrintDato(aggregertPeriode.startet.tidspunkt, sprak)} ${tekst('til')} 
                 ${prettyPrintDato(aggregertPeriode.avsluttet?.tidspunkt || '', sprak)}`}
                 </BodyShort>
                 {tekst('seTidligere')}
-              </div>
+              </Box>
             )}
           </LinkCard.Description>
         </LinkCard>

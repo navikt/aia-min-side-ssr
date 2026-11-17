@@ -62,7 +62,6 @@ Microfrontenden vil bare vises dersom testpersonen er registrert arbeidssøker e
 
 - [Storybook](https://storybook.js.org/)
 - [Aksel - komponenter](https://aksel.nav.no/komponenter)
-- [Tailwind.css](https://tailwindcss.com/)
 
 ## Henvendelser
 

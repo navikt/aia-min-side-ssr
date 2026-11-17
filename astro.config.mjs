@@ -1,6 +1,5 @@
 import node from '@astrojs/node';
 import react from '@astrojs/react';
-import tailwindcss from '@tailwindcss/vite';
 import { defineConfig, envField } from 'astro/config';
 import prefixer from 'postcss-prefix-selector';
 
@@ -11,7 +10,6 @@ export default defineConfig({
     inlineStylesheets: 'always',
   },
   vite: {
-    plugins: [tailwindcss()],
     css: {
       postcss: {
         plugins: [

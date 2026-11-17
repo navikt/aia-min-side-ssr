@@ -16,8 +16,25 @@
   text-decoration: none;
 }
 
+.aiaLinkCard__wrapper {
+  width: 100%;
+}
+
 .aiaLinkCard__wrapper:hover {
   text-decoration: none;
+}
+
+.aiaLinkCard__title {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+}
+
+.aiaLinkCard__wrapper:hover .aiaLinkCard__title {
+  text-decoration-thickness: 2px;
+}
+
+.aiaLinkCard {
+  width: 100%;
 }
 
 .aiaLinkCard:hover {
@@ -27,10 +44,10 @@
 }
 
 .aiaLinkCardBekreftelse {
-  padding: 16px;
+  padding: var(--ax-space-16);
   border: 1px solid var(--ax-border-subtle);
   border-top: none;
-  border-radius: 0 0 8px 8px;
+  border-radius: 0 0 var(--ax-radius-8) var(--ax-radius-8);
   background: var(--ax-bg-warning-moderate);
   box-shadow:
     0 1px 3px #0000001f,

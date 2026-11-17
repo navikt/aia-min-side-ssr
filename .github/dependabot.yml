@@ -34,10 +34,6 @@ updates:
         patterns:
           - "vitest"
           - "@vitest/*"
-      tailwindcss:
-        patterns:
-          - "tailwindcss"
-          - "@tailwindcss/*"
   - package-ecosystem: github-actions
     directory: /
     schedule:
