@@ -54,7 +54,7 @@
     "husky": "9.1.7",
     "jsdom": "31.0.0",
     "knip": "6.44.2",
-    "lint-staged": "17.6.0",
+    "lint-staged": "17.6.1",
     "playwright": "1.65.1",
     "postcss": "8.5.33",
     "postcss-prefix-selector": "2.2.1",
