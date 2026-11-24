@@ -108,6 +108,8 @@ All CSS **må** være scoped til `.aia-min-side-ssr`-klassen eller avgrenset lok
 <Box marginBlock="space-8 space-0">...</Box>
 ```
 
+Prefixeren gjør Aksels `:root`-selektorer om til `.aia-min-side-ssr`, så designtokens (`--ax-*`) defineres på wrapperen og følger appens egen Aksel-versjon. Mørkt tema blir derimot `.aia-min-side-ssr .dark` og virker bare når `.dark` står på et element inne i wrapperen, ikke på wrapperen selv. En `.dark`-klasse på `<html>` eller `<body>` i Min side slår ikke igjennom. Hvis Min side får mørkt tema, må dette løses, for eksempel med et indre element som får `.dark` basert på vertens tema, eller med en `transform` i prefixeren.
+
 I React (`.tsx`) bruker du `className`. I Astro-sider (`.astro`) bruker du `class`. Storybook legger til wrapperen gjennom dekoratoren i `.storybook/preview.tsx`.
 
 ### Tekster og i18n
